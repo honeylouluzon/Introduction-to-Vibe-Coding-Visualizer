@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Consciousness Continuum Visualizer</title>
+    <link rel="stylesheet" href="styles/main.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <header class="header">
+        <h1>Consciousness Continuum Visualizer</h1>
+    </header>
+
+    <div class="app-container">
+        <aside class="sidebar">
+            <div class="entity-list">
+                <h2>Entities</h2>
+                <div class="entity" draggable="true" data-entity="human">
+                    <img src="assets/human-icon.svg" alt="Human" class="entity-icon">
+                    <span>Human</span>
+                </div>
+                <div class="entity" draggable="true" data-entity="dog">
+                    <img src="assets/dog-icon.svg" alt="Dog" class="entity-icon">
+                    <span>Dog</span>
+                </div>
+                <div class="entity" draggable="true" data-entity="ai">
+                    <img src="assets/ai-icon.svg" alt="AI Bot" class="entity-icon">
+                    <span>AI Bot</span>
+                </div>
+            </div>
+            <div class="presets">
+                <h2>Presets</h2>
+                <button class="preset-btn" data-preset="human-vs-dog">Human vs Dog</button>
+                <button class="preset-btn" data-preset="ai-comparison">AI Comparison</button>
+            </div>
+        </aside>
+
+        <main class="main-content">
+            <div class="canvas-area" id="canvas">
+                <div class="welcome-message">
+                    <p>Drag entities from the sidebar to start comparing their intelligence dimensions.</p>
+                </div>
+                <div class="chart-container">
+                    <canvas id="visualizationChart"></canvas>
+                </div>
+            </div>
+            <div class="control-panel">
+                <div class="dimension-controls" id="dimensionControls">
+                    <!-- Dimension controls will be dynamically added here -->
+                </div>
+                <div class="action-buttons">
+                    <button id="resetBtn" class="btn">Reset</button>
+                    <button id="saveBtn" class="btn">Save</button>
+                    <button id="exportBtn" class="btn">Export</button>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="js/app.js" type="module"></script>
+</body>
+</html> 
