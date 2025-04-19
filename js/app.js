@@ -117,6 +117,12 @@ class App {
         this.visualizationManager.addEntity(entity);
         this.uiManager.updateDimensionControls(entity);
 
+        // Call compareEntities if there are at least two entities
+        const entities = this.entityManager.getAllEntities();
+        if (entities.length >= 2) {
+            this.visualizationManager.compareEntities(entities[0], entities[1]);
+        }
+
         // Hide welcome message
         const welcomeMessage = document.querySelector('.welcome-message');
         if (welcomeMessage) {
@@ -162,6 +168,12 @@ class App {
                 this.visualizationManager.addEntity(entity);
                 this.uiManager.updateDimensionControls(entity);
             });
+
+            // Call compareEntities if there are at least two entities
+            const entities = this.entityManager.getAllEntities();
+            if (entities.length >= 2) {
+                this.visualizationManager.compareEntities(entities[0], entities[1]);
+            }
         } else {
             console.error(`Preset "${presetName}" not found`);
         }
@@ -171,4 +183,4 @@ class App {
 // Initialize the application when the DOM is loaded
 document.addEventListener('DOMContentLoaded', () => {
     window.app = new App();
-}); 
+});

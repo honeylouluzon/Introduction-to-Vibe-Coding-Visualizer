@@ -101,6 +101,7 @@ export class VisualizationManager {
 
         this.chart.data.datasets.push(dataset);
         this.chart.update('default');
+        
     }
 
     updateEntity(entity) {
