@@ -237,8 +237,10 @@ export class VisualizationManager {
 
     displayResult(message) {
         if (this.resultContainer) {
-            this.resultContainer.innerHTML = message;
+            this.resultContainer.innerHTML = message; // Update the content of the result container
             this.resultContainer.style.display = 'block'; // Ensure the result is visible
+        } else {
+            console.error('Result container not found.');
         }
     }
 }
