@@ -1,2 +1,8 @@
-Update the code and the Readme.md. Add new feature: this feature is the capability to update the available entities to be drag and drop for comparison. This feature should be capable to add new entities, delete
-existing, or update the existing. The entities add, delete, or update by this feature will be one of the available intities to be drag and drop like the human, dog, and ai. The feature will also auto set its default reasonable value for its visualization.
+Update the Managing Entities in the Readme.md
+It should contain like this found below.
+
+Managing Entities
+
+1. Use the "Add" and "Delete" buttons located under the list of entities to manage them.
+2. When adding a new entity by pressing the add button, the user will provide the name of the entity and the application will auto set its default reasonable values for its dimensions. The new entity added will immediately become available for drag-and-drop.
+3. Deleted entities will be removed in the list immediately.

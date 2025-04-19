@@ -45,10 +45,10 @@ A client-side web application for comparing different entities (humans, animals,
 - Click the "Export" button to save the current visualization as a PNG image
 
 ### Managing Entities
-- Use the "Add," "Edit," and "Delete" buttons located near or under the list of entities to manage them.
-- When adding a new entity, default reasonable values for its dimensions will be auto-set.
-- Updated or newly added entities will immediately become available for drag-and-drop.
-- Deleted entities will no longer appear in the sidebar.
+
+1. Use the "Add" and "Delete" buttons located under the list of entities to manage them.
+2. When adding a new entity by pressing the add button, the user will provide the name of the entity and the application will auto set its default reasonable values for its dimensions. The new entity added will immediately become available for drag-and-drop.
+3. Deleted entities will be removed in the list immediately.
 
 ## Technical Details
 
