@@ -46,9 +46,8 @@ A client-side web application for comparing different entities (humans, animals,
 
 ### Managing Entities
 
-1. Use the "Add" and "Delete" buttons located under the list of entities to manage them.
-2. When adding a new entity by pressing the add button, the user will provide the name of the entity, and the application will auto-set its default reasonable values for its dimensions. The new entity added will immediately become available for drag-and-drop.
-3. To delete, select the entity to be deleted by clicking on it, then press or click the delete button. Deleted entities will be removed from the list immediately.
+- Entities are predefined and available for drag-and-drop comparison.
+- The application no longer supports adding or deleting entities dynamically.
 
 ## Technical Details
 
