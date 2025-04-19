@@ -191,4 +191,24 @@ export class VisualizationManager {
             this.chartContainer.style.display = 'none';
         }
     }
+
+    calculateTotalScore(entity) {
+        const { perception, action, memory, learning, goalOrientation } = entity.dimensions;
+        return perception + action + memory + learning + goalOrientation;
+    }
+
+    compareEntities(entity1, entity2) {
+        const score1 = this.calculateTotalScore(entity1);
+        const score2 = this.calculateTotalScore(entity2);
+
+        if (score1 > score2) {
+            console.log(`${entity1.type} is more conscious with a total score of ${score1}.`);
+            console.log(`${entity2.type} has a total score of ${score2}.`);
+        } else if (score2 > score1) {
+            console.log(`${entity2.type} is more conscious with a total score of ${score2}.`);
+            console.log(`${entity1.type} has a total score of ${score1}.`);
+        } else {
+            console.log(`Both ${entity1.type} and ${entity2.type} are equally conscious with a total score of ${score1}.`);
+        }
+    }
 }
