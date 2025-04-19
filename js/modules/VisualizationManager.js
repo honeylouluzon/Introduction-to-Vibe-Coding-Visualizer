@@ -3,8 +3,10 @@ export class VisualizationManager {
         this.chart = null;
         this.chartContainer = document.querySelector('.chart-container'); // Reference to the chart container
         this.resultContainer = document.querySelector('.comparison-result'); // Reference to the comparison result container
+        this.thoughtDisplay = document.querySelector('.thought-display'); // Reference to the thought display container
         this.initializeChart();
         this.hideChart(); // Initially hide the chart
+        this.initializeActions();
     }
 
     initializeChart() {
@@ -68,6 +70,101 @@ export class VisualizationManager {
                 }
             }
         });
+    }
+
+    initializeActions() {
+        const actionButtons = document.querySelectorAll('.action-btn');
+        actionButtons.forEach(button => {
+            button.addEventListener('click', (e) => {
+                const action = e.target.dataset.action;
+                this.handleAction(action);
+            });
+        });
+    }
+
+    handleAction(action) {
+        const selectedEntity = document.querySelector('input[name="selected-entity"]:checked');
+        if (!selectedEntity) {
+            alert('Please select an entity to perform the action.');
+            return;
+        }
+
+        const entityIndex = selectedEntity.value === 'entity1' ? 0 : 1;
+        const entities = window.app.entityManager.getAllEntities();
+        if (!entities[entityIndex]) {
+            alert('Selected entity is not available.');
+            return;
+        }
+
+        const entity = entities[entityIndex];
+        this.applyActionEffects(entity, action);
+        this.displayThought(action);
+        window.app.visualizationManager.updateEntity(entity);
+        const updatedEntities = window.app.entityManager.getAllEntities();
+        if (updatedEntities.length >= 2) {
+            this.compareEntities(updatedEntities[0], updatedEntities[1]);
+        }
+    }
+
+    applyActionEffects(entity, action) {
+        const effects = {
+            reading: { perception: 5, memory: 10 },
+            chatting: { action: 5, learning: 5 },
+            traveling: { perception: 10, goalOrientation: 5 },
+            exercising: { action: 10, goalOrientation: 5 },
+            meditating: { memory: 5, learning: 10 },
+            cooking: { learning: 5, goalOrientation: 5 }
+        };
+
+        const effect = effects[action];
+        if (effect) {
+            for (const [dimension, value] of Object.entries(effect)) {
+                entity.dimensions[dimension] = Math.min(100, entity.dimensions[dimension] + value);
+            }
+        }
+    }
+
+    displayThought(action) {
+        const thoughts = {
+            reading: [
+                "This book is so captivating, I can't put it down.",
+                "Learning new things is always exciting.",
+                "The story is so immersive, I feel like I'm part of it."
+            ],
+            chatting: [
+                "It's great to connect with others and share ideas.",
+                "I enjoy hearing different perspectives.",
+                "Conversations like these make my day brighter."
+            ],
+            traveling: [
+                "The view is so nice, nature is relaxing, I like the sea breeze and the feeling of the sand touching my feet.",
+                "The city lights are so overwhelming, it will be fun here.",
+                "Exploring new places always fills me with joy."
+            ],
+            exercising: [
+                "I feel so energized after a good workout.",
+                "Pushing my limits makes me feel alive.",
+                "Staying active is the key to a healthy mind and body."
+            ],
+            meditating: [
+                "I feel so calm and centered right now.",
+                "Clearing my mind helps me focus better.",
+                "Meditation brings me peace and clarity."
+            ],
+            cooking: [
+                "The aroma of fresh ingredients is so delightful.",
+                "Cooking is like creating art with flavors.",
+                "I can't wait to taste this delicious meal."
+            ]
+        };
+
+        const randomThought = thoughts[action][Math.floor(Math.random() * thoughts[action].length)];
+        this.thoughtDisplay.innerHTML = `<em>${randomThought}</em>`;
+        this.thoughtDisplay.style.display = 'block';
+
+        setTimeout(() => {
+            this.thoughtDisplay.style.display = 'none';
+        }, 20000); // Display the thought for 20 seconds
     }
 
     addEntity(entity) {

@@ -61,6 +61,21 @@ A client-side web application for comparing different entities (humans, animals,
 - **AI Bot**: Total Score = 380
 - Result: "Human is more conscious with a total score of 420. AI Bot has a total score of 380."
 
+### Action Section
+
+- After dragging two entities to the canvas, you can select one entity to perform an action.
+- Use the radio buttons or dropdown to select the entity.
+- Below the selection, there are six action buttons: "Reading", "Chatting", "Traveling", "Exercising", "Meditating", and "Cooking".
+- Clicking an action button will:
+  - Modify the selected entity's dimensions based on the action.
+  - Update the radar chart and comparison result.
+  - Display a random thought related to the action below the chart for 20 seconds.
+
+### Example
+
+- **Action**: Traveling
+- **Thought**: "The view is so nice, nature is relaxing, I like the sea breeze and the feeling of the sand touching my feet."
+
 ## Technical Details
 
 - Built with vanilla JavaScript (ES6+)
