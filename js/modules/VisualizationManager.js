@@ -2,9 +2,9 @@ export class VisualizationManager {
     constructor() {
         this.chart = null;
         this.chartContainer = document.querySelector('.chart-container'); // Reference to the chart container
+        this.resultContainer = document.querySelector('.comparison-result'); // Reference to the comparison result container
         this.initializeChart();
         this.hideChart(); // Initially hide the chart
-        this.createResultContainer(); // Create and append the result container
     }
 
     initializeChart() {
@@ -68,15 +68,6 @@ export class VisualizationManager {
                 }
             }
         });
-    }
-
-    createResultContainer() {
-        this.resultContainer = document.createElement('div'); // Create a container for results
-        this.resultContainer.className = 'comparison-result';
-        this.resultContainer.style.display = 'none'; // Initially hidden
-        if (this.chartContainer) {
-            this.chartContainer.parentNode.insertBefore(this.resultContainer, this.chartContainer.nextSibling); // Append below the chart
-        }
     }
 
     addEntity(entity) {
