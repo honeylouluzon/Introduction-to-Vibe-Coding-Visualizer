@@ -3,7 +3,7 @@ import EntityManager from './entityManager.js';
 class UIManager {
     constructor() {
         this.entityManager = new EntityManager();
-        // ...existing code...
+        this.entityManager.updateSidebar(); // Initialize the sidebar
         this.setupEntityManagement();
     }
 
@@ -19,10 +19,7 @@ class UIManager {
         });
 
         deleteButton.addEventListener('click', () => {
-            const name = prompt('Enter the name of the entity to delete:');
-            if (name) {
-                this.entityManager.deleteEntity(name);
-            }
+            this.entityManager.deleteEntity();
         });
     }
 }
