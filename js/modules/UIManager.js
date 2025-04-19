@@ -53,6 +53,12 @@ export class UIManager {
                     [dimension]: newValue
                 });
                 window.app.visualizationManager.updateEntity(entity);
+
+                // Update comparison result if there are at least two entities
+                const entities = window.app.entityManager.getAllEntities();
+                if (entities.length >= 2) {
+                    window.app.visualizationManager.compareEntities(entities[0], entities[1]);
+                }
             });
 
             sliderContainer.appendChild(label);
@@ -102,4 +108,4 @@ export class UIManager {
             this.welcomeMessage.style.display = 'block';
         }
     }
-} 
+}
