@@ -273,7 +273,7 @@ input[type="range"]:focus {
 }
 
 .comparison-result {
-    margin-top: 1rem;
+    margin-top: 1rem; /* Space between the chart and the result */
     padding: 1rem;
     background-color: #f8f9fa;
     border: 1px solid #ddd;
@@ -282,4 +282,5 @@ input[type="range"]:focus {
     color: #333;
     text-align: center;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    width: 100%; /* Ensure it spans the full width below the chart */
 }
