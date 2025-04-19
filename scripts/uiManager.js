@@ -9,8 +9,8 @@ class UIManager {
 
     setupEntityManagement() {
         const addButton = document.getElementById('add-entity');
+        const editButton = document.getElementById('edit-entity');
         const deleteButton = document.getElementById('delete-entity');
-        const updateButton = document.getElementById('update-entity');
 
         addButton.addEventListener('click', () => {
             const name = prompt('Enter the name of the new entity:');
@@ -19,15 +19,8 @@ class UIManager {
             }
         });
 
-        deleteButton.addEventListener('click', () => {
-            const name = prompt('Enter the name of the entity to delete:');
-            if (name) {
-                this.entityManager.deleteEntity(name);
-            }
-        });
-
-        updateButton.addEventListener('click', () => {
-            const name = prompt('Enter the name of the entity to update:');
+        editButton.addEventListener('click', () => {
+            const name = prompt('Enter the name of the entity to edit:');
             if (name) {
                 const dimensions = {};
                 ['perception', 'action', 'memory', 'learning', 'goalOrientation'].forEach(dimension => {
@@ -35,6 +28,13 @@ class UIManager {
                     if (value) dimensions[dimension] = parseInt(value, 10);
                 });
                 this.entityManager.updateEntity(name, dimensions);
+            }
+        });
+
+        deleteButton.addEventListener('click', () => {
+            const name = prompt('Enter the name of the entity to delete:');
+            if (name) {
+                this.entityManager.deleteEntity(name);
             }
         });
     }
