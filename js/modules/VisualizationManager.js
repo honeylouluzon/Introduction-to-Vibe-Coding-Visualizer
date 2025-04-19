@@ -181,21 +181,23 @@ export class VisualizationManager {
         const score1 = this.calculateConsciousnessScore(entity1);
         const score2 = this.calculateConsciousnessScore(entity2);
 
-        let result = `Consciousness Comparison:\n`;
-        result += `---------------------------------\n`;
-        result += `${entity1.type} - Consciousness Score: ${score1.toFixed(2)}\n`;
-        result += `${entity2.type} - Consciousness Score: ${score2.toFixed(2)}\n`;
-        result += `---------------------------------\n`;
+        let result = `<strong>Consciousness Comparison:</strong><br>`;
+        result += `---------------------------------<br>`;
+        result += `${entity1.type} - Consciousness Score: ${score1.toFixed(2)}<br>`;
+        result += `${entity2.type} - Consciousness Score: ${score2.toFixed(2)}<br>`;
+        result += `---------------------------------<br>`;
 
         if (score1 > score2) {
-            result += `${entity1.type} is more conscious than ${entity2.type}.\n`;
+            result += `<strong>${entity1.type} is more conscious than ${entity2.type}.</strong>`;
         } else if (score1 < score2) {
-            result += `${entity2.type} is more conscious than ${entity1.type}.\n`;
+            result += `<strong>${entity2.type} is more conscious than ${entity1.type}.</strong>`;
         } else {
-            result += `${entity1.type} and ${entity2.type} have the same level of consciousness.\n`;
+            result += `<strong>${entity1.type} and ${entity2.type} have the same level of consciousness.</strong>`;
         }
 
-        console.log(result);
-        alert(result); // Display the result in a well-formatted form
+        const comparisonResultElement = document.getElementById('comparison-result');
+        if (comparisonResultElement) {
+            comparisonResultElement.innerHTML = result; // Display the result in the HTML element
+        }
     }
 }
