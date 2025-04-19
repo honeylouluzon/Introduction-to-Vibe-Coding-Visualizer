@@ -170,34 +170,4 @@ export class VisualizationManager {
         this.chart.data.datasets = [];
         this.chart.update('default');
     }
-
-    calculateConsciousnessScore(entity) {
-        const dimensions = entity.dimensions;
-        const totalScore = dimensions.perception + dimensions.action + dimensions.memory + dimensions.learning + dimensions.goalOrientation;
-        return totalScore / 5; // Average score
-    }
-
-    compareEntities(entity1, entity2) {
-        const score1 = this.calculateConsciousnessScore(entity1);
-        const score2 = this.calculateConsciousnessScore(entity2);
-
-        let result = `<strong>Consciousness Comparison:</strong><br>`;
-        result += `---------------------------------<br>`;
-        result += `${entity1.type} - Consciousness Score: ${score1.toFixed(2)}<br>`;
-        result += `${entity2.type} - Consciousness Score: ${score2.toFixed(2)}<br>`;
-        result += `---------------------------------<br>`;
-
-        if (score1 > score2) {
-            result += `<strong>${entity1.type} is more conscious than ${entity2.type}.</strong>`;
-        } else if (score1 < score2) {
-            result += `<strong>${entity2.type} is more conscious than ${entity1.type}.</strong>`;
-        } else {
-            result += `<strong>${entity1.type} and ${entity2.type} have the same level of consciousness.</strong>`;
-        }
-
-        const comparisonResultElement = document.getElementById('comparison-result');
-        if (comparisonResultElement) {
-            comparisonResultElement.innerHTML = result; // Display the result in the HTML element
-        }
-    }
-}
+} 

@@ -122,12 +122,6 @@ class App {
         if (welcomeMessage) {
             welcomeMessage.style.display = 'none';
         }
-
-        // Example: Compare two entities after adding them
-        const entities = this.entityManager.getAllEntities();
-        if (entities.length >= 2) {
-            this.visualizationManager.compareEntities(entities[0], entities[1]);
-        }
     }
 
     reset() {
@@ -177,4 +171,4 @@ class App {
 // Initialize the application when the DOM is loaded
 document.addEventListener('DOMContentLoaded', () => {
     window.app = new App();
-});
+}); 

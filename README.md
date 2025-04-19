@@ -44,10 +44,6 @@ A client-side web application for comparing different entities (humans, animals,
 ### Exporting
 - Click the "Export" button to save the current visualization as a PNG image
 
-### Comparing Entities
-- After dragging or selecting two entities, the application calculates their overall Consciousness scores.
-- The scores are displayed in a dedicated section, showing which entity is more conscious or if they have the same level of consciousness.
-
 ### Managing Entities
 
 - Entities are predefined and available for drag-and-drop comparison.
