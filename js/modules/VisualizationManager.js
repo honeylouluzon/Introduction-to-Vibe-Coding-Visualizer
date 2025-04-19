@@ -1,7 +1,9 @@
 export class VisualizationManager {
     constructor() {
         this.chart = null;
+        this.chartContainer = document.querySelector('.chart-container'); // Reference to the chart container
         this.initializeChart();
+        this.hideChart(); // Initially hide the chart
     }
 
     initializeChart() {
@@ -73,6 +75,8 @@ export class VisualizationManager {
             return;
         }
 
+        this.showChart(); // Make the chart visible when an entity is added
+
         const color = this.getEntityColor(entity.type);
         const dataset = {
             label: this.getEntityLabel(entity.type),
@@ -129,6 +133,10 @@ export class VisualizationManager {
             this.chart.data.datasets.splice(index, 1);
             this.chart.update('default');
         }
+
+        if (this.chart.data.datasets.length === 0) {
+            this.hideChart(); // Hide the chart if no datasets remain
+        }
     }
 
     getEntityColor(type) {
@@ -169,5 +177,18 @@ export class VisualizationManager {
 
         this.chart.data.datasets = [];
         this.chart.update('default');
+        this.hideChart(); // Hide the chart on reset
     }
-} 
+
+    showChart() {
+        if (this.chartContainer) {
+            this.chartContainer.style.display = 'block';
+        }
+    }
+
+    hideChart() {
+        if (this.chartContainer) {
+            this.chartContainer.style.display = 'none';
+        }
+    }
+}
