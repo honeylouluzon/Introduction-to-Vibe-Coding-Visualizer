@@ -4,6 +4,9 @@ export class VisualizationManager {
         this.chartContainer = document.querySelector('.chart-container'); // Reference to the chart container
         this.initializeChart();
         this.hideChart(); // Initially hide the chart
+        this.resultContainer = document.createElement('div'); // Create a container for results
+        this.resultContainer.className = 'comparison-result';
+        this.chartContainer?.parentNode?.appendChild(this.resultContainer); // Append below the chart
     }
 
     initializeChart() {
@@ -178,6 +181,10 @@ export class VisualizationManager {
         this.chart.data.datasets = [];
         this.chart.update('default');
         this.hideChart(); // Hide the chart on reset
+        if (this.resultContainer) {
+            this.resultContainer.innerHTML = ''; // Clear the result
+            this.resultContainer.style.display = 'none'; // Hide the result container
+        }
     }
 
     showChart() {
@@ -201,14 +208,30 @@ export class VisualizationManager {
         const score1 = this.calculateTotalScore(entity1);
         const score2 = this.calculateTotalScore(entity2);
 
+        let resultMessage = '';
         if (score1 > score2) {
-            console.log(`${entity1.type} is more conscious with a total score of ${score1}.`);
-            console.log(`${entity2.type} has a total score of ${score2}.`);
+            resultMessage = `
+                <p><strong>${entity1.type}</strong> is more conscious with a total score of <strong>${score1}</strong>.</p>
+                <p><strong>${entity2.type}</strong> has a total score of <strong>${score2}</strong>.</p>
+            `;
         } else if (score2 > score1) {
-            console.log(`${entity2.type} is more conscious with a total score of ${score2}.`);
-            console.log(`${entity1.type} has a total score of ${score1}.`);
+            resultMessage = `
+                <p><strong>${entity2.type}</strong> is more conscious with a total score of <strong>${score2}</strong>.</p>
+                <p><strong>${entity1.type}</strong> has a total score of <strong>${score1}</strong>.</p>
+            `;
         } else {
-            console.log(`Both ${entity1.type} and ${entity2.type} are equally conscious with a total score of ${score1}.`);
+            resultMessage = `
+                <p>Both <strong>${entity1.type}</strong> and <strong>${entity2.type}</strong> are equally conscious with a total score of <strong>${score1}</strong>.</p>
+            `;
+        }
+
+        this.displayResult(resultMessage);
+    }
+
+    displayResult(message) {
+        if (this.resultContainer) {
+            this.resultContainer.innerHTML = message;
+            this.resultContainer.style.display = 'block'; // Ensure the result is visible
         }
     }
 }

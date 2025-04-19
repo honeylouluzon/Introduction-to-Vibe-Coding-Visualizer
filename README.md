@@ -49,6 +49,18 @@ A client-side web application for comparing different entities (humans, animals,
 - Entities are predefined and available for drag-and-drop comparison.
 - The application no longer supports adding or deleting entities dynamically.
 
+### Consciousness Score and Comparison
+
+- Each entity has a total consciousness score calculated by summing up its five intelligence dimensions: Perception, Action, Memory, Learning, and Goal Orientation.
+- When two entities are compared, their total scores are displayed below the chart in a formatted result.
+- The result highlights which entity is more conscious or if both entities are equally conscious.
+
+### Example
+
+- **Human**: Total Score = 420
+- **AI Bot**: Total Score = 380
+- Result: "Human is more conscious with a total score of 420. AI Bot has a total score of 380."
+
 ## Technical Details
 
 - Built with vanilla JavaScript (ES6+)
