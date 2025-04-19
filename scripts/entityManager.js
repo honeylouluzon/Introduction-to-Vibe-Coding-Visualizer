@@ -25,15 +25,6 @@ class EntityManager {
         }
     }
 
-    // Update an existing entity
-    updateEntity(name, newDimensions) {
-        const entity = this.entities.find(entity => entity.name === name);
-        if (entity) {
-            entity.dimensions = { ...entity.dimensions, ...newDimensions };
-            this.updateSidebar();
-        }
-    }
-
     // Update the sidebar with the current list of entities
     updateSidebar() {
         const sidebar = document.getElementById('entity-list');
