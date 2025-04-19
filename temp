@@ -1,0 +1,2 @@
+Update the code and the Readme.md. Add new feature: this feature is the capability to update the available entities to be drag and drop for comparison. This feature should be capable to add new entities, delete
+existing, or update the existing. The entities add, delete, or update by this feature will be one of the available intities to be drag and drop like the human, dog, and ai. The feature will also auto set its default reasonable value for its visualization.

@@ -12,6 +12,7 @@ A client-side web application for comparing different entities (humans, animals,
 - Export visualizations as images
 - Fully responsive design
 - Accessibility support
+- **Entity Management**: Add, delete, or update available entities for drag-and-drop comparison
 
 ## Getting Started
 
@@ -43,6 +44,12 @@ A client-side web application for comparing different entities (humans, animals,
 ### Exporting
 - Click the "Export" button to save the current visualization as a PNG image
 
+### Managing Entities
+- Use the "Manage Entities" panel to add, delete, or update entities.
+- When adding a new entity, default reasonable values for its dimensions will be auto-set.
+- Updated or newly added entities will immediately become available for drag-and-drop.
+- Deleted entities will no longer appear in the sidebar.
+
 ## Technical Details
 
 - Built with vanilla JavaScript (ES6+)
@@ -69,4 +76,4 @@ The application is structured into several modules:
 
 ## License
 
-MIT License 
+MIT License
