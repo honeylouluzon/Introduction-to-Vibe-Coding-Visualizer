@@ -218,6 +218,9 @@ body {
 
 .dimension-slider {
     margin-bottom: 1rem;
+    background: #3a3a3a; /* Matte dark gray background for the slider container */
+    padding: 0.5rem;
+    border-radius: 8px;
 }
 
 .dimension-slider label {
@@ -231,6 +234,7 @@ body {
     width: 100%;
     margin-bottom: 0.5rem;
     accent-color: #d81b60; /* Matte pink slider */
+    background: transparent; /* Invisible background */
 }
 
 .dimension-value {
@@ -423,12 +427,13 @@ input[type="range"]:focus {
 }
 
 .story-type-selector label {
-    font-size: 1rem;
+    font-size: 0.9rem; /* Reduced font size to fit text */
     color: #f5f5f5; /* Light text for dark background */
     background: #3a3a3a; /* Matte dark gray */
     padding: 0.5rem;
     border-radius: 8px;
     display: inline-block;
+    text-align: center; /* Center-align text */
     transition: background-color 0.3s, color 0.3s;
 }
 
