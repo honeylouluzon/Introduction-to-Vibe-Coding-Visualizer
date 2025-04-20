@@ -68,7 +68,7 @@ A client-side web application for comparing different entities (humans, animals,
 - Below the selection, there are six action buttons: "Reading", "Chatting", "Traveling", "Exercising", "Meditating", and "Cooking".
 - Clicking an action button will:
   - Modify the selected entity's dimensions based on the action.
-  - Update the radar chart, sliders, and comparison result.
+  - Update the radar chart, sliders (existing sliders will move to reflect the changes), and comparison result.
   - Display a random thought related to the action below the chart for 20 seconds. The thought will be enclosed in quotation marks and specify which entity is thinking or saying it (e.g., "Human is thinking: 'The view is so nice, nature is relaxing.'").
   - Append the dimension improvements (e.g., "Improvement: +5 memory, +5 perception") under the thought. The word "Improvement" is underlined for emphasis.
 

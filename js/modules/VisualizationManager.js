@@ -127,7 +127,7 @@ export class VisualizationManager {
         window.app.visualizationManager.updateEntity(entity);
 
         // Update sliders to reflect the new dimensions
-        window.app.uiManager.updateDimensionControls(entity);
+        this.updateSliders(entity);
 
         const updatedEntities = window.app.entityManager.getAllEntities();
         if (updatedEntities.length >= 2) {
@@ -154,6 +154,17 @@ export class VisualizationManager {
             }
         }
         return improvementText.slice(0, -2); // Remove trailing comma and space
+    }
+
+    updateSliders(entity) {
+        const sliders = document.querySelectorAll(`[data-entity-id="${entity.id}"] .dimension-slider input[type="range"]`);
+        sliders.forEach(slider => {
+            const dimension = slider.id.split('-').pop(); // Extract the dimension name from the slider ID
+            if (entity.dimensions[dimension] !== undefined) {
+                slider.value = entity.dimensions[dimension];
+                slider.nextElementSibling.textContent = entity.dimensions[dimension]; // Update the displayed value
+            }
+        });
     }
 
     displayThought(entityType, action, improvementText) {
