@@ -405,9 +405,20 @@ input[type="range"]:focus {
     background-color: #f8f9fa;
     border: 1px solid #ddd;
     border-radius: 8px;
-    text-align: center;
-    font-size: 1.3rem; /* Reduced from 1.5rem */
-    font-weight: bold;
+    text-align: left; /* Align the title and content to the left */
+    font-size: 1rem; /* Adjusted for consistency with other sections */
     color: #2c3e50;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.combine-section h3 {
+    font-size: 1.5rem; /* Match the title size of other sections */
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+}
+
+.combine-section p {
+    font-size: 1rem; /* Keep the result text size consistent */
+    font-weight: normal; /* Remove bold styling from the result text */
+    margin: 0;
 }
