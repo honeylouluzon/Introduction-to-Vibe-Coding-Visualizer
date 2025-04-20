@@ -137,6 +137,12 @@ class App {
 
         // Update the story section
         this.visualizationManager.updateStorySection(entities);
+
+        // Update the thought display text color to white
+        const thoughtDisplay = document.querySelector('.thought-display');
+        if (thoughtDisplay) {
+            thoughtDisplay.style.color = '#ffffff'; // Set text color to white
+        }
     }
 
     reset() {
