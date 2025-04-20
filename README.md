@@ -87,6 +87,7 @@ A client-side web application for comparing different entities (humans, animals,
   - Ask questions related to its highest dimension or consciousness score.
   - Respond to the other entity's question based on its own dimensions and consciousness score.
   - Randomly ask a follow-up question after answering, keeping the conversation dynamic.
+- The conversation alternates between the entities, ensuring that one entity answers before asking its own question.
 - The conversation flows continuously in a chat box with a fixed size and a scroll bar to view previous messages.
 - The format of the conversation is:
   - **Entity Name**: Question or Answer

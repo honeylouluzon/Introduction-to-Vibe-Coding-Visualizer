@@ -9,6 +9,7 @@ export class VisualizationManager {
         this.conversationSection = document.querySelector('.conversation-section'); // Reference to the conversation section
         this.conversationBox = document.querySelector('.conversation-box'); // Reference to the conversation box
         this.conversationInterval = null; // Interval for automated conversation
+        this.currentTurn = 0; // Track whose turn it is to ask a question
         this.initializeChart();
         this.hideChart(); // Initially hide the chart
         this.initializeActions();
@@ -401,24 +402,29 @@ export class VisualizationManager {
     }
 
     runConversationCycle(entity1, entity2) {
-        const question = this.getQuestion(entity1);
-        const answer = this.getAnswer(entity2, question);
+        const asker = this.currentTurn % 2 === 0 ? entity1 : entity2;
+        const responder = this.currentTurn % 2 === 0 ? entity2 : entity1;
 
-        this.addConversationLine(entity1.type, question);
+        const question = this.getQuestion(asker);
+        this.addConversationLine(asker.type, question);
+
         setTimeout(() => {
-            this.addConversationLine(entity2.type, answer);
+            const answer = this.getAnswer(responder, question);
+            this.addConversationLine(responder.type, answer);
 
-            // Randomly decide if the answering entity will ask a follow-up question
+            // Randomly decide if the responder will ask a follow-up question
             if (Math.random() > 0.5) {
-                const followUpQuestion = this.getQuestion(entity2);
+                const followUpQuestion = this.getQuestion(responder);
                 setTimeout(() => {
-                    this.addConversationLine(entity2.type, followUpQuestion);
-                    const followUpAnswer = this.getAnswer(entity1, followUpQuestion);
+                    this.addConversationLine(responder.type, followUpQuestion);
+                    const followUpAnswer = this.getAnswer(asker, followUpQuestion);
                     setTimeout(() => {
-                        this.addConversationLine(entity1.type, followUpAnswer);
+                        this.addConversationLine(asker.type, followUpAnswer);
                     }, 2000); // Delay the follow-up answer by 2 seconds
                 }, 2000); // Delay the follow-up question by 2 seconds
             }
+
+            this.currentTurn++; // Switch turns
         }, 2000); // Delay the response by 2 seconds
     }
 
