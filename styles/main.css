@@ -412,7 +412,6 @@ input[type="range"]:focus {
 }
 
 .combine-section h3 {
-    font-size: 1.8rem; /* Match the title size of other sections */
-    font-weight: bold;
-    margin-bottom: 0.5rem;
+    font-size: 1.2rem; /* Match the title size of other sections */
+    margin-bottom: 1rem;
 }
