@@ -131,6 +131,9 @@ class App {
         if (welcomeMessage) {
             welcomeMessage.style.display = 'none';
         }
+
+        // Update the conversation section
+        this.visualizationManager.updateConversationSection(entities);
     }
 
     reset() {
@@ -148,6 +151,7 @@ class App {
         }
 
         this.visualizationManager.updateActionSection([]); // Hide the action section on reset
+        this.visualizationManager.updateConversationSection([]); // Hide the conversation section on reset
     }
 
     save() {
@@ -182,6 +186,9 @@ class App {
             if (entities.length >= 2) {
                 this.visualizationManager.compareEntities(entities[0], entities[1]);
             }
+
+            // Update the conversation section
+            this.visualizationManager.updateConversationSection(entities);
         } else {
             console.error(`Preset "${presetName}" not found`);
         }

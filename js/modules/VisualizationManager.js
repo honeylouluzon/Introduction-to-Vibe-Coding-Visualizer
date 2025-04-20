@@ -6,6 +6,9 @@ export class VisualizationManager {
         this.thoughtDisplay = document.querySelector('.thought-display'); // Reference to the thought display container
         this.actionSection = document.querySelector('.action-section'); // Reference to the action section
         this.entitySelector = document.querySelector('.entity-selector'); // Reference to the entity selector
+        this.conversationSection = document.querySelector('.conversation-section'); // Reference to the conversation section
+        this.conversationBox = document.querySelector('.conversation-box'); // Reference to the conversation box
+        this.conversationInterval = null; // Interval for automated conversation
         this.initializeChart();
         this.hideChart(); // Initially hide the chart
         this.initializeActions();
@@ -375,5 +378,111 @@ export class VisualizationManager {
         } else {
             console.error('Result container not found.');
         }
+    }
+
+    updateConversationSection(entities) {
+        if (entities.length < 2) {
+            this.conversationSection.style.display = 'none'; // Hide the conversation section if less than 2 entities
+            if (this.conversationInterval) clearInterval(this.conversationInterval);
+            return;
+        }
+
+        this.conversationSection.style.display = 'block'; // Show the conversation section
+        this.startConversation(entities);
+    }
+
+    startConversation(entities) {
+        if (this.conversationInterval) clearInterval(this.conversationInterval);
+
+        this.conversationInterval = setInterval(() => {
+            const [entity1, entity2] = entities;
+            const question = this.getQuestion(entity1);
+            const answer = this.getAnswer(entity2, question);
+
+            this.addConversationLine(entity1.type, question);
+            setTimeout(() => {
+                this.addConversationLine(entity2.type, answer);
+            }, 2000); // Delay the response by 2 seconds
+        }, 5000); // New conversation every 5 seconds
+    }
+
+    getQuestion(entity) {
+        const questions = {
+            perception: [
+                "What do you see around you?",
+                "How do you perceive the world today?",
+                "What catches your attention the most?"
+            ],
+            action: [
+                "What activity are you planning to do?",
+                "How do you stay active?",
+                "What motivates you to take action?"
+            ],
+            memory: [
+                "What is your favorite memory?",
+                "How do you remember important things?",
+                "What is something you will never forget?"
+            ],
+            learning: [
+                "What have you learned recently?",
+                "How do you approach learning new things?",
+                "What is the most interesting thing you've studied?"
+            ],
+            goalOrientation: [
+                "What is your current goal?",
+                "How do you stay focused on your objectives?",
+                "What drives you to achieve your ambitions?"
+            ]
+        };
+
+        const dimension = this.getHighestDimension(entity);
+        const dimensionQuestions = questions[dimension];
+        return dimensionQuestions[Math.floor(Math.random() * dimensionQuestions.length)];
+    }
+
+    getAnswer(entity, question) {
+        const answers = {
+            perception: [
+                "I see a beautiful landscape.",
+                "The world looks vibrant and full of life.",
+                "I notice the small details that others might miss."
+            ],
+            action: [
+                "I plan to go for a run.",
+                "Staying active keeps me energized.",
+                "I enjoy taking on new challenges."
+            ],
+            memory: [
+                "I remember my childhood fondly.",
+                "I keep a journal to remember important events.",
+                "Some memories are etched in my mind forever."
+            ],
+            learning: [
+                "I recently learned about quantum physics.",
+                "I enjoy exploring new topics every day.",
+                "Learning keeps my mind sharp and curious."
+            ],
+            goalOrientation: [
+                "My goal is to become the best version of myself.",
+                "I stay focused by breaking my goals into smaller tasks.",
+                "Ambition drives me to keep moving forward."
+            ]
+        };
+
+        const dimension = this.getHighestDimension(entity);
+        const dimensionAnswers = answers[dimension];
+        return dimensionAnswers[Math.floor(Math.random() * dimensionAnswers.length)];
+    }
+
+    getHighestDimension(entity) {
+        const dimensions = entity.dimensions;
+        return Object.keys(dimensions).reduce((a, b) => (dimensions[a] > dimensions[b] ? a : b));
+    }
+
+    addConversationLine(sender, text) {
+        const line = document.createElement('div');
+        line.innerHTML = `<strong>${sender}:</strong> ${text}`;
+        this.conversationBox.appendChild(line);
+        this.conversationBox.scrollTop = this.conversationBox.scrollHeight; // Auto-scroll to the latest message
     }
 }

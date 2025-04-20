@@ -78,6 +78,29 @@ A client-side web application for comparing different entities (humans, animals,
 - **Thought**: "Human is thinking: 'The view is so nice, nature is relaxing, I like the sea breeze and the feeling of the sand touching my feet.'"
 - **Improvement**: "+10 perception, +5 goal orientation"
 
+### Conversation Section
+
+- After dragging at least two entities to the canvas or selecting a preset, the "Conversation" section will appear.
+- This section simulates an automated conversation between the selected entities.
+- The conversation is based on the entities' consciousness scores and dimensions.
+- Each entity will:
+  - Ask questions related to its highest dimension or consciousness score.
+  - Respond to the other entity's question based on its own dimensions and consciousness score.
+- The conversation flows continuously in a chat box with a fixed size and a scroll bar to view previous messages.
+- The format of the conversation is:
+  - **Entity Name**: Question or Answer
+- Example:
+  - **Human**: "What do you see around you?"
+  - **AI Bot**: "I see a beautiful landscape."
+
+### Example
+
+- **Conversation**:
+  - **Human**: "What is your favorite memory?"
+  - **AI Bot**: "I remember my first interaction with humans. It was fascinating."
+  - **Human**: "What motivates you to take action?"
+  - **AI Bot**: "I enjoy taking on new challenges and learning from them."
+
 ## Technical Details
 
 - Built with vanilla JavaScript (ES6+)
