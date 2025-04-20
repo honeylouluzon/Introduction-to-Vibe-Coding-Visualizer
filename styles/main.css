@@ -175,6 +175,19 @@ body {
     box-shadow: 0 6px 12px rgba(0, 0, 0, 0.4);
 }
 
+.chart-container canvas {
+    color: #ffffff; /* White text for chart labels */
+}
+
+.chart-container .chart-legend {
+    color: #d81b60; /* Matte pink for entity names */
+    font-weight: bold; /* Bold entity names */
+}
+
+.chart-container .chart-grid {
+    stroke: #ffffff; /* White grid lines */
+}
+
 .welcome-message {
     position: absolute;
     top: 50%;
