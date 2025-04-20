@@ -99,10 +99,12 @@ export class VisualizationManager {
     updateActionSection(entities) {
         if (entities.length === 0) {
             this.actionSection.style.display = 'none'; // Hide the action section if no entities
+            this.resultContainer.style.display = 'none'; // Hide the comparison result
             return;
         }
 
         this.actionSection.style.display = 'block'; // Show the action section
+        this.resultContainer.style.display = 'none'; // Initially hide the comparison result
         this.entitySelector.innerHTML = ''; // Clear existing radio buttons
 
         entities.forEach((entity, index) => {
