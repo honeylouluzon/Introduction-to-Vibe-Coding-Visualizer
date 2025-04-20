@@ -146,7 +146,7 @@ export class VisualizationManager {
         };
 
         const effect = effects[action];
-        let improvementText = 'Improvement: ';
+        let improvementText = '<u>Improvement:</u> ';
         if (effect) {
             for (const [dimension, value] of Object.entries(effect)) {
                 entity.dimensions[dimension] = Math.min(100, entity.dimensions[dimension] + value);
@@ -191,7 +191,7 @@ export class VisualizationManager {
         };
 
         const randomThought = thoughts[action][Math.floor(Math.random() * thoughts[action].length)];
-        this.thoughtDisplay.innerHTML = `<em>${randomThought}</em><br><strong>${improvementText}</strong>`;
+        this.thoughtDisplay.innerHTML = `${randomThought}<br>${improvementText}`;
         this.thoughtDisplay.style.display = 'block';
 
         setTimeout(() => {

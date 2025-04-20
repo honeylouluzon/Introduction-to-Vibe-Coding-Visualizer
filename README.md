@@ -70,7 +70,7 @@ A client-side web application for comparing different entities (humans, animals,
   - Modify the selected entity's dimensions based on the action.
   - Update the radar chart, sliders, and comparison result.
   - Display a random thought related to the action below the chart for 20 seconds.
-  - Append the dimension improvements (e.g., "Improvement: +5 memory, +5 perception") under the thought.
+  - Append the dimension improvements (e.g., "Improvement: +5 memory, +5 perception") under the thought. The word "Improvement" is underlined for emphasis.
 
 ### Example
 
