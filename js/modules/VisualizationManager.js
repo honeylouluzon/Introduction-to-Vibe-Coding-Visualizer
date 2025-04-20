@@ -569,6 +569,10 @@ export class VisualizationManager {
                 "The AI and human discovered a portal to a magical realm hidden in an ancient forest. Together, they embarked on a quest to retrieve a lost artifact that could restore balance to the realm. The AI's analytical mind and the human's intuition guided them through enchanted landscapes and dangerous trials, forging an unbreakable bond.",
                 "In a kingdom ruled by machines, the human and AI joined forces to overthrow a tyrannical ruler. The AI hacked into the kingdom's systems, while the human rallied the oppressed citizens. Their bravery and determination inspired a revolution that brought peace to the land."
             ],
+            "ai-human-adventure": [
+                "The AI and human embarked on a daring mission to explore an uncharted island. The AI used its advanced sensors to map the terrain, while the human navigated through dense jungles. Together, they uncovered ancient ruins and deciphered mysterious symbols, revealing the secrets of a lost civilization.",
+                "In a futuristic city, the AI and human joined forces to track down a stolen artifact. The AI hacked into surveillance systems, while the human chased the thief through crowded streets. Their teamwork led to the recovery of the artifact, earning them the gratitude of the city's inhabitants."
+            ],
 
             // AI and Dog stories
             "ai-dog-love": [
@@ -591,6 +595,10 @@ export class VisualizationManager {
                 "The AI and dog discovered a hidden portal in the woods that led to a magical kingdom. The dog, with its keen senses, guided the AI through enchanted forests and past mischievous fairies. Together, they helped the kingdom's inhabitants recover a stolen artifact, earning the title of 'Guardians of the Realm.'",
                 "In a world where animals could talk, the AI and dog became unlikely heroes. The dog, now able to communicate, shared its wisdom with the AI, and together they embarked on a quest to unite warring factions of magical creatures. Their journey was filled with challenges, but their bond brought peace to the land."
             ],
+            "ai-dog-adventure": [
+                "The AI and dog ventured into a vast desert in search of a legendary oasis. The dog’s keen sense of smell guided them through sandstorms, while the AI calculated the safest routes. After days of travel, they discovered the oasis, a hidden paradise that few had ever seen.",
+                "In a snowy mountain range, the AI and dog set out to rescue a stranded climber. The dog’s instincts led them to the climber’s location, and the AI used its tools to create a safe path back down. Their bravery and determination saved a life and forged an unbreakable bond."
+            ],
 
             // Human and Dog stories
             "human-dog-love": [
@@ -612,6 +620,10 @@ export class VisualizationManager {
             "human-dog-fantasy": [
                 "The human and dog discovered a hidden cave filled with glowing crystals. As they ventured deeper, they found an ancient artifact guarded by a mythical creature. The dog barked bravely, and the human negotiated with the creature, earning its trust and the artifact.",
                 "In a magical forest, the human and dog encountered talking animals and enchanted trees. Together, they embarked on a quest to find a legendary flower that could heal any ailment, overcoming challenges and making new friends along the way."
+            ],
+            "human-dog-adventure": [
+                "The human and dog set sail on a small boat, determined to find a hidden treasure rumored to be buried on a remote island. The dog barked excitedly as they approached the shore, and together they dug through the sand to uncover a chest filled with gold and jewels.",
+                "In a dense rainforest, the human and dog worked together to find a rare medicinal plant. The dog sniffed out the trail, and the human carefully harvested the plant. Their journey through the wild was filled with challenges, but their teamwork ensured success."
             ]
         };
     }
