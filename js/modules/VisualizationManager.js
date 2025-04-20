@@ -123,7 +123,7 @@ export class VisualizationManager {
 
         const entity = entities[entityIndex];
         const improvementText = this.applyActionEffects(entity, action);
-        this.displayThought(action, improvementText);
+        this.displayThought(entity.type, action, improvementText);
         window.app.visualizationManager.updateEntity(entity);
 
         // Update sliders to reflect the new dimensions
@@ -156,42 +156,43 @@ export class VisualizationManager {
         return improvementText.slice(0, -2); // Remove trailing comma and space
     }
 
-    displayThought(action, improvementText) {
+    displayThought(entityType, action, improvementText) {
         const thoughts = {
             reading: [
-                "This book is so captivating, I can't put it down.",
-                "Learning new things is always exciting.",
-                "The story is so immersive, I feel like I'm part of it."
+                `"I love immersing myself in this story."`,
+                `"This book is so captivating, I can't put it down."`,
+                `"Learning new things is always exciting."`
             ],
             chatting: [
-                "It's great to connect with others and share ideas.",
-                "I enjoy hearing different perspectives.",
-                "Conversations like these make my day brighter."
+                `"It's great to connect with others and share ideas."`,
+                `"I enjoy hearing different perspectives."`,
+                `"Conversations like these make my day brighter."`
             ],
             traveling: [
-                "The view is so nice, nature is relaxing, I like the sea breeze and the feeling of the sand touching my feet.",
-                "The city lights are so overwhelming, it will be fun here.",
-                "Exploring new places always fills me with joy."
+                `"The view is so nice, nature is relaxing, I like the sea breeze and the feeling of the sand touching my feet."`,
+                `"The city lights are so overwhelming, it will be fun here."`,
+                `"Exploring new places always fills me with joy."`
             ],
             exercising: [
-                "I feel so energized after a good workout.",
-                "Pushing my limits makes me feel alive.",
-                "Staying active is the key to a healthy mind and body."
+                `"The dumbbell is so heavy, I will gain more muscle with this."`,
+                `"I feel so energized after a good workout."`,
+                `"Pushing my limits makes me feel alive."`
             ],
             meditating: [
-                "I feel so calm and centered right now.",
-                "Clearing my mind helps me focus better.",
-                "Meditation brings me peace and clarity."
+                `"I feel so calm and centered right now."`,
+                `"Clearing my mind helps me focus better."`,
+                `"Meditation brings me peace and clarity."`
             ],
             cooking: [
-                "The aroma of fresh ingredients is so delightful.",
-                "Cooking is like creating art with flavors.",
-                "I can't wait to taste this delicious meal."
+                `"The aroma of fresh ingredients is so delightful."`,
+                `"Cooking is like creating art with flavors."`,
+                `"I can't wait to taste this delicious meal."`
             ]
         };
 
         const randomThought = thoughts[action][Math.floor(Math.random() * thoughts[action].length)];
-        this.thoughtDisplay.innerHTML = `${randomThought}<br>${improvementText}`;
+        const thoughtText = `${entityType} is thinking: ${randomThought}`;
+        this.thoughtDisplay.innerHTML = `${thoughtText}<br>${improvementText}`;
         this.thoughtDisplay.style.display = 'block';
 
         setTimeout(() => {
