@@ -218,7 +218,7 @@ body {
 
 .dimension-slider {
     margin-bottom: 1rem;
-    background: #3a3a3a; /* Matte dark gray background for the slider container */
+    background: transparent; /* Invisible background */
     padding: 0.5rem;
     border-radius: 8px;
 }
@@ -432,8 +432,9 @@ input[type="range"]:focus {
     background: #3a3a3a; /* Matte dark gray */
     padding: 0.5rem;
     border-radius: 8px;
-    display: inline-block;
-    text-align: center; /* Center-align text */
+    display: flex; /* Use flexbox for inline alignment */
+    align-items: center; /* Center-align text vertically */
+    gap: 0.5rem; /* Space between the radio button and text */
     transition: background-color 0.3s, color 0.3s;
 }
 
