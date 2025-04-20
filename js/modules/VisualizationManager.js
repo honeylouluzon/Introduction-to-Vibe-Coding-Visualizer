@@ -274,6 +274,12 @@ export class VisualizationManager {
             ];
             this.chart.update('default');
         }
+
+        // Update comparison and combine results if there are at least two entities
+        const entities = window.app.entityManager.getAllEntities();
+        if (entities.length >= 2) {
+            this.compareEntities(entities[0], entities[1]);
+        }
     }
 
     removeEntity(entityType) {
