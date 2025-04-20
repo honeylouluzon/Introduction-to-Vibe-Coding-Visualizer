@@ -14,8 +14,8 @@ body {
 
 /* Header styles */
 .header {
-    background: linear-gradient(90deg, #d81b60, #8e24aa); /* Matte pink-purple gradient */
-    color: white;
+    background: #d81b60; /* Matte pink background */
+    color: #2e2e2e; /* Dark gray text */
     padding: 1rem;
     text-align: center;
     border-bottom: 4px solid #b71c1c; /* Deep matte red */
@@ -25,7 +25,7 @@ body {
 .header h1 {
     font-size: 2.2rem;
     font-weight: 700;
-    text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.4);
+    text-shadow: none; /* Remove text shadow for clarity */
     letter-spacing: 1px;
 }
 
