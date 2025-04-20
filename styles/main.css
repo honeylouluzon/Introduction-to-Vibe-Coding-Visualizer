@@ -14,8 +14,8 @@ body {
 
 /* Header styles */
 .header {
-    background: #d81b60; /* Matte pink background */
-    color: #2e2e2e; /* Dark gray text */
+    background: linear-gradient(90deg, #d81b60, #8e24aa); /* Matte pink-purple gradient */
+    color: white;
     padding: 1rem;
     text-align: center;
     border-bottom: 4px solid #b71c1c; /* Deep matte red */
@@ -25,7 +25,7 @@ body {
 .header h1 {
     font-size: 2.2rem;
     font-weight: 700;
-    text-shadow: none; /* Remove text shadow for clarity */
+    text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.4);
     letter-spacing: 1px;
 }
 
@@ -176,7 +176,7 @@ body {
 }
 
 .chart-container canvas {
-    color: #ffffff !important; /* Force white text for chart labels */
+    color: #ffffff; /* White text for chart labels */
 }
 
 .chart-container .chart-legend {
@@ -214,20 +214,6 @@ body {
 
 .dimension-controls {
     margin-bottom: 1rem;
-    background: #3a3a3a; /* Matte dark gray background */
-    border: 2px solid #d81b60; /* Matte pink border */
-    border-radius: 12px;
-    padding: 1rem;
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.4);
-    color: #f5f5f5; /* Light text */
-}
-
-.dimension-controls h3 {
-    margin-bottom: 1rem;
-    font-size: 1.2rem;
-    color: #f06292; /* Soft matte pink */
-    text-transform: uppercase;
-    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
 }
 
 .entity-controls {
@@ -245,7 +231,7 @@ body {
 
 .dimension-slider {
     margin-bottom: 1rem;
-    background: #4a4a4a; /* Matte medium gray background */
+    background: #3a3a3a; /* Matte dark gray background */
     border: 2px solid #d81b60; /* Matte pink border */
     border-radius: 12px;
     padding: 1rem;
