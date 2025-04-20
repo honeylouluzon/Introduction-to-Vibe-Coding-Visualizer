@@ -174,8 +174,11 @@ class App {
                 this.uiManager.updateDimensionControls(entity);
             });
 
-            // Call compareEntities if there are at least two entities
+            // Update the action section
             const entities = this.entityManager.getAllEntities();
+            this.visualizationManager.updateActionSection(entities);
+
+            // Call compareEntities if there are at least two entities
             if (entities.length >= 2) {
                 this.visualizationManager.compareEntities(entities[0], entities[1]);
             }

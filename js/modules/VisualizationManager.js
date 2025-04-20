@@ -122,9 +122,13 @@ export class VisualizationManager {
         }
 
         const entity = entities[entityIndex];
-        this.applyActionEffects(entity, action);
-        this.displayThought(action);
+        const improvementText = this.applyActionEffects(entity, action);
+        this.displayThought(action, improvementText);
         window.app.visualizationManager.updateEntity(entity);
+
+        // Update sliders to reflect the new dimensions
+        window.app.uiManager.updateDimensionControls(entity);
+
         const updatedEntities = window.app.entityManager.getAllEntities();
         if (updatedEntities.length >= 2) {
             this.compareEntities(updatedEntities[0], updatedEntities[1]);
@@ -142,14 +146,17 @@ export class VisualizationManager {
         };
 
         const effect = effects[action];
+        let improvementText = 'Improvement: ';
         if (effect) {
             for (const [dimension, value] of Object.entries(effect)) {
                 entity.dimensions[dimension] = Math.min(100, entity.dimensions[dimension] + value);
+                improvementText += `+${value} ${dimension}, `;
             }
         }
+        return improvementText.slice(0, -2); // Remove trailing comma and space
     }
 
-    displayThought(action) {
+    displayThought(action, improvementText) {
         const thoughts = {
             reading: [
                 "This book is so captivating, I can't put it down.",
@@ -184,7 +191,7 @@ export class VisualizationManager {
         };
 
         const randomThought = thoughts[action][Math.floor(Math.random() * thoughts[action].length)];
-        this.thoughtDisplay.innerHTML = `<em>${randomThought}</em>`;
+        this.thoughtDisplay.innerHTML = `<em>${randomThought}</em><br><strong>${improvementText}</strong>`;
         this.thoughtDisplay.style.display = 'block';
 
         setTimeout(() => {
