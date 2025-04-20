@@ -138,10 +138,15 @@ class App {
         // Update the story section
         this.visualizationManager.updateStorySection(entities);
 
-        // Update the thought display text color to white
+        // Update the thought display text and improvement text color to white
         const thoughtDisplay = document.querySelector('.thought-display');
         if (thoughtDisplay) {
-            thoughtDisplay.style.color = '#ffffff'; // Set text color to white
+            thoughtDisplay.style.color = '#ffffff'; // Set thought text color to white
+        }
+
+        const improvementText = document.querySelector('.improvement-text');
+        if (improvementText) {
+            improvementText.style.color = '#ffffff'; // Set improvement text color to white
         }
     }
 
