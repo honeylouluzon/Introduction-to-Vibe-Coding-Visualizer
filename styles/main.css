@@ -376,11 +376,13 @@ input[type="range"]:focus {
 }
 
 .story-type-selector {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* 3 columns */
+    gap: 0.5rem;
     margin-bottom: 1rem;
 }
 
 .story-type-selector label {
-    margin-right: 1rem;
     font-size: 1rem;
     color: #333;
 }

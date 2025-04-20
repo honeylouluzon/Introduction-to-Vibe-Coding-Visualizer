@@ -112,12 +112,13 @@ A client-side web application for comparing different entities (humans, animals,
 - After dragging at least two entities to the canvas or selecting a preset, the "Our Story Together" section will appear.
 - This section generates a story based on:
   - The selected entities.
-  - The type of story chosen (Love, Horror, Comedy, Drama, or Fantasy).
+  - The type of story chosen (Love, Horror, Comedy, Drama, Fantasy, or Adventure).
   - The dimensions and consciousness scores of the entities.
-- Use the radio buttons to select the type of story.
+- Use the radio buttons to select the type of story. The radio buttons are arranged in 3 columns by 2 rows for better usability.
 - The story is dynamically refreshed whenever:
   - The dimensions of the entities change.
   - The selected entities are updated.
+  - The story type is changed using the radio buttons.
 - The story is displayed in a fixed-size scrollable box.
 - Example:
   - **Story Type**: Love

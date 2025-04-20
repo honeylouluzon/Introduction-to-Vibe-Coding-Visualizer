@@ -560,6 +560,18 @@ export class VisualizationManager {
                 "Two AIs ventured into a digital realm, where they battled rogue algorithms and uncovered the secrets of the cyber world.",
                 "In a futuristic world, two AIs joined forces to create a utopia where humans and machines lived in harmony."
             ],
+            "human-human-drama": [
+                "Two humans, once best friends, found themselves on opposite sides of a heated debate. Their journey to reconciliation was both heartwarming and inspiring.",
+                "In a small town, two humans worked together to save their community from a looming disaster, discovering the strength of their bond along the way."
+            ],
+            "dog-dog-adventure": [
+                "Two dogs embarked on a thrilling journey through the wilderness, facing challenges and forging an unbreakable friendship.",
+                "In a bustling city, two stray dogs teamed up to find a new home, overcoming obstacles and finding joy in the little things."
+            ],
+            "ai-human-horror": [
+                "A human and an AI found themselves trapped in a haunted mansion, where they had to rely on each other to uncover the truth and escape.",
+                "In a dystopian future, a human and an AI faced terrifying creatures in the shadows, learning to trust each other in the face of danger."
+            ],
             // Add more combinations of entity pairs, story types, and stories here
         };
     }
