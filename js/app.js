@@ -117,8 +117,11 @@ class App {
         this.visualizationManager.addEntity(entity);
         this.uiManager.updateDimensionControls(entity);
 
-        // Call compareEntities if there are at least two entities
+        // Update the action section
         const entities = this.entityManager.getAllEntities();
+        this.visualizationManager.updateActionSection(entities);
+
+        // Call compareEntities if there are at least two entities
         if (entities.length >= 2) {
             this.visualizationManager.compareEntities(entities[0], entities[1]);
         }
@@ -143,6 +146,8 @@ class App {
         if (welcomeMessage) {
             welcomeMessage.style.display = 'block';
         }
+
+        this.visualizationManager.updateActionSection([]); // Hide the action section on reset
     }
 
     save() {

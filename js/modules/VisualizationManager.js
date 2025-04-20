@@ -4,6 +4,8 @@ export class VisualizationManager {
         this.chartContainer = document.querySelector('.chart-container'); // Reference to the chart container
         this.resultContainer = document.querySelector('.comparison-result'); // Reference to the comparison result container
         this.thoughtDisplay = document.querySelector('.thought-display'); // Reference to the thought display container
+        this.actionSection = document.querySelector('.action-section'); // Reference to the action section
+        this.entitySelector = document.querySelector('.entity-selector'); // Reference to the entity selector
         this.initializeChart();
         this.hideChart(); // Initially hide the chart
         this.initializeActions();
@@ -82,6 +84,29 @@ export class VisualizationManager {
         });
     }
 
+    updateActionSection(entities) {
+        if (entities.length === 0) {
+            this.actionSection.style.display = 'none'; // Hide the action section if no entities
+            return;
+        }
+
+        this.actionSection.style.display = 'block'; // Show the action section
+        this.entitySelector.innerHTML = ''; // Clear existing radio buttons
+
+        entities.forEach((entity, index) => {
+            const label = document.createElement('label');
+            label.innerHTML = `
+                <input type="radio" name="selected-entity" value="entity${index}"> ${entity.type}
+            `;
+            this.entitySelector.appendChild(label);
+        });
+
+        // Automatically select the first entity
+        if (entities.length > 0) {
+            this.entitySelector.querySelector('input').checked = true;
+        }
+    }
+
     handleAction(action) {
         const selectedEntity = document.querySelector('input[name="selected-entity"]:checked');
         if (!selectedEntity) {
@@ -89,7 +114,7 @@ export class VisualizationManager {
             return;
         }
 
-        const entityIndex = selectedEntity.value === 'entity1' ? 0 : 1;
+        const entityIndex = parseInt(selectedEntity.value.replace('entity', ''), 10);
         const entities = window.app.entityManager.getAllEntities();
         if (!entities[entityIndex]) {
             alert('Selected entity is not available.');
