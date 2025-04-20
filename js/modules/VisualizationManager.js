@@ -17,6 +17,10 @@ export class VisualizationManager {
         this.hideChart(); // Initially hide the chart
         this.initializeActions();
         this.initializeStoryTypeSelector();
+        this.combineSection = document.createElement('div'); // Create the "Combine Together" section
+        this.combineSection.className = 'combine-section';
+        this.combineSection.style.display = 'none'; // Initially hidden
+        this.resultContainer.insertAdjacentElement('afterend', this.combineSection); // Add below the comparison result
     }
 
     initializeChart() {
@@ -374,6 +378,46 @@ export class VisualizationManager {
         }
 
         this.displayResult(resultMessage);
+        this.updateCombineSection(entity1, entity2, score1 + score2); // Update the "Combine Together" section
+    }
+
+    updateCombineSection(entity1, entity2, combinedScore) {
+        const combination = this.getCombination(entity1.type, entity2.type, combinedScore);
+        this.combineSection.innerHTML = `<p><strong>${combination}</strong></p>`;
+        this.combineSection.style.display = 'block'; // Show the section
+    }
+
+    getCombination(type1, type2, combinedScore) {
+        const dataset = this.getCombinationDataset();
+        const key = `${type1}-${type2}`;
+        const range = this.getScoreRange(combinedScore);
+        return dataset[key]?.[range] || "No combination available for this pair.";
+    }
+
+    getScoreRange(score) {
+        if (score <= 200) return "0-200";
+        if (score <= 400) return "201-400";
+        return "401-500";
+    }
+
+    getCombinationDataset() {
+        return {
+            "ai-human": {
+                "0-200": "A basic humanoid robot with limited memory but capable of simple tasks.",
+                "201-400": "An intelligent humanoid with high memory that looks human outside but powered by AI inside.",
+                "401-500": "A super-intelligent being with human-like emotions and AI precision, capable of solving complex problems."
+            },
+            "ai-dog": {
+                "0-200": "A robotic dog with basic AI that can follow simple commands.",
+                "201-400": "A cybernetic canine with advanced AI, capable of assisting in search and rescue missions.",
+                "401-500": "A futuristic hybrid with the agility of a dog and the intelligence of AI, capable of independent decision-making."
+            },
+            "human-dog": {
+                "0-200": "A playful creature with a dog's instincts and a human's curiosity.",
+                "201-400": "A half-dog above and a human below, good at logic and reasoning but with limited memory.",
+                "401-500": "A mythical being with the loyalty of a dog and the intellect of a human, capable of extraordinary feats."
+            }
+        };
     }
 
     displayResult(message) {

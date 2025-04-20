@@ -128,6 +128,29 @@ A client-side web application for comparing different entities (humans, animals,
   - **Story Type**: Love
   - **Story**: "Once upon a time, a human and an AI discovered a shared passion for art. Together, they created masterpieces that inspired the world."
 
+### Combine Together
+
+- When at least two entities are added to the canvas, the "Combine Together" section will appear below the comparison result.
+- This section displays the possible entity that could be created when the two selected entities are combined.
+- The result is based on the combined consciousness scores of the two entities:
+  - **0-200**: Represents a basic or limited combination.
+  - **201-400**: Represents a moderately advanced combination.
+  - **401-500**: Represents a highly advanced or extraordinary combination.
+- The description of the combined entity includes its capabilities and appearance.
+- Example combinations:
+  - **AI and Human**:
+    - **0-200**: "A basic humanoid robot with limited memory but capable of simple tasks."
+    - **201-400**: "An intelligent humanoid with high memory that looks human outside but powered by AI inside."
+    - **401-500**: "A super-intelligent being with human-like emotions and AI precision, capable of solving complex problems."
+  - **AI and Dog**:
+    - **0-200**: "A robotic dog with basic AI that can follow simple commands."
+    - **201-400**: "A cybernetic canine with advanced AI, capable of assisting in search and rescue missions."
+    - **401-500**: "A futuristic hybrid with the agility of a dog and the intelligence of AI, capable of independent decision-making."
+  - **Human and Dog**:
+    - **0-200**: "A playful creature with a dog's instincts and a human's curiosity."
+    - **201-400**: "A half-dog above and a human below, good at logic and reasoning but with limited memory."
+    - **401-500**: "A mythical being with the loyalty of a dog and the intellect of a human, capable of extraordinary feats."
+
 ## Technical Details
 
 - Built with vanilla JavaScript (ES6+)
