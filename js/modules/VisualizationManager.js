@@ -390,7 +390,7 @@ export class VisualizationManager {
     updateCombineSection(entity1, entity2, combinedScore) {
         const combination = this.getCombination(entity1.type, entity2.type, combinedScore);
         this.combineSection.innerHTML = `
-            <h3>When Combined Together:</h3>
+            <h3>When Combining Together</h3>
             <p>"${combination}"</p>
         `;
         this.combineSection.style.display = 'block'; // Show the section
