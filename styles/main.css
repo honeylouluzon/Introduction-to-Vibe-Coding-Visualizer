@@ -388,7 +388,7 @@ input[type="range"]:focus {
 .thought-display {
     margin-top: 1rem;
     font-style: italic;
-    color: #555;
+    color: white;
     text-align: center;
     display: none;
 }
