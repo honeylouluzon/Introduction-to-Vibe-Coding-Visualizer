@@ -6,23 +6,25 @@
 }
 
 body {
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-family: 'Poppins', sans-serif;
     line-height: 1.6;
     color: #333;
-    background-color: #f5f5f5;
+    background: linear-gradient(135deg, #fce4ec, #f8bbd0); /* Soft pink gradient */
 }
 
 /* Header styles */
 .header {
-    background-color: #2c3e50;
+    background: linear-gradient(90deg, #ec407a, #f48fb1); /* Vibrant pink gradient */
     color: white;
     padding: 1rem;
     text-align: center;
+    border-bottom: 4px solid #f06292;
 }
 
 .header h1 {
-    font-size: 1.8rem;
-    font-weight: 600;
+    font-size: 2rem;
+    font-weight: 700;
+    text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.2);
 }
 
 /* Main container layout */
@@ -36,10 +38,11 @@ body {
 /* Sidebar styles */
 .sidebar {
     width: 25%;
-    background-color: white;
-    border-radius: 8px;
+    background: linear-gradient(135deg, #f8bbd0, #fce4ec); /* Soft pink gradient */
+    border-radius: 12px;
     padding: 1rem;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    border: 2px solid #f48fb1;
 }
 
 .entity-list {
@@ -48,9 +51,10 @@ body {
 
 .entity-list h2,
 .presets h2 {
-    font-size: 1.2rem;
+    font-size: 1.4rem;
     margin-bottom: 1rem;
-    color: #2c3e50;
+    color: #880e4f;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
 }
 
 .entity {
@@ -58,18 +62,18 @@ body {
     align-items: center;
     padding: 0.5rem;
     margin-bottom: 0.5rem;
-    background-color: #f8f9fa;
-    border-radius: 4px;
+    background: linear-gradient(135deg, #fce4ec, #f8bbd0);
+    border-radius: 8px;
     cursor: grab;
-    transition: all 0.2s ease;
+    transition: all 0.3s ease;
     user-select: none;
     border: 2px solid transparent;
 }
 
 .entity:hover {
-    background-color: #e9ecef;
+    background: linear-gradient(135deg, #f8bbd0, #f48fb1);
     transform: translateY(-2px);
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
 .entity:active {
@@ -84,8 +88,8 @@ body {
 }
 
 .entity-icon {
-    width: 24px;
-    height: 24px;
+    width: 28px;
+    height: 28px;
     margin-right: 0.5rem;
     pointer-events: none;
 }
@@ -99,15 +103,19 @@ body {
     width: 100%;
     padding: 0.5rem;
     margin-bottom: 0.5rem;
-    background-color: #e9ecef;
+    background: linear-gradient(135deg, #f8bbd0, #fce4ec);
     border: none;
-    border-radius: 4px;
+    border-radius: 8px;
     cursor: pointer;
-    transition: background-color 0.2s;
+    transition: background-color 0.3s, transform 0.2s;
+    font-weight: bold;
+    color: #880e4f;
 }
 
 .preset-btn:hover {
-    background-color: #dee2e6;
+    background: linear-gradient(135deg, #f48fb1, #ec407a);
+    color: white;
+    transform: translateY(-2px);
 }
 
 .preset-btn.active {
@@ -125,19 +133,19 @@ body {
 
 .canvas-area {
     flex: 1;
-    background-color: white;
-    border-radius: 8px;
+    background: linear-gradient(135deg, #ffffff, #fce4ec);
+    border-radius: 12px;
     padding: 1rem;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     min-height: 400px;
     position: relative;
-    border: 2px solid transparent;
+    border: 2px solid #f48fb1;
     transition: all 0.3s ease;
 }
 
 .canvas-area.drag-target {
-    border: 2px solid #007bff;
-    background-color: rgba(0, 123, 255, 0.02);
+    border: 2px solid #ec407a;
+    background: rgba(236, 64, 122, 0.1);
 }
 
 .canvas-area.drag-over {
@@ -160,17 +168,20 @@ body {
     left: 50%;
     transform: translate(-50%, -50%);
     text-align: center;
-    color: #6c757d;
+    color: #880e4f;
+    font-size: 1.2rem;
+    font-weight: bold;
     z-index: 1;
     pointer-events: none;
 }
 
 /* Control panel styles */
 .control-panel {
-    background-color: white;
-    border-radius: 8px;
+    background: linear-gradient(135deg, #fce4ec, #f8bbd0);
+    border-radius: 12px;
     padding: 1rem;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    border: 2px solid #f48fb1;
 }
 
 .dimension-controls {
@@ -186,7 +197,8 @@ body {
 
 .entity-controls h3 {
     margin-bottom: 1rem;
-    color: #2c3e50;
+    color: #880e4f;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
 }
 
 .dimension-slider {
@@ -202,6 +214,7 @@ body {
 .dimension-slider input[type="range"] {
     width: 100%;
     margin-bottom: 0.5rem;
+    accent-color: #ec407a;
 }
 
 .dimension-value {
@@ -219,15 +232,17 @@ body {
 .btn {
     padding: 0.5rem 1rem;
     border: none;
-    border-radius: 4px;
-    background-color: #007bff;
+    border-radius: 8px;
+    background: linear-gradient(135deg, #ec407a, #f48fb1);
     color: white;
     cursor: pointer;
-    transition: background-color 0.2s;
+    transition: background-color 0.3s, transform 0.2s;
+    font-weight: bold;
 }
 
 .btn:hover {
-    background-color: #0056b3;
+    background: linear-gradient(135deg, #f48fb1, #ec407a);
+    transform: translateY(-2px);
 }
 
 /* Responsive design */
@@ -276,13 +291,13 @@ input[type="range"]:focus {
 .comparison-result {
     margin-top: 1rem; /* Space between the chart and the result */
     padding: 1rem;
-    background-color: #f8f9fa;
-    border: 1px solid #ddd;
-    border-radius: 8px;
+    background: linear-gradient(135deg, #fce4ec, #f8bbd0);
+    border: 2px solid #f48fb1;
+    border-radius: 12px;
     font-size: 1rem;
-    color: #333;
+    color: #880e4f;
     text-align: center;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     width: 100%; /* Ensure it spans the full width below the chart */
 }
 
@@ -336,24 +351,25 @@ input[type="range"]:focus {
 .conversation-section {
     margin-top: 1rem;
     padding: 1rem;
-    background-color: #f8f9fa;
-    border: 1px solid #ddd;
-    border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    background: linear-gradient(135deg, #fce4ec, #f8bbd0);
+    border: 2px solid #f48fb1;
+    border-radius: 12px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
 .conversation-section h3 {
     margin-bottom: 1rem;
-    font-size: 1.2rem;
-    color: #2c3e50;
+    font-size: 1.4rem;
+    color: #880e4f;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
 }
 
 .conversation-box {
     height: 200px;
     overflow-y: auto;
-    background-color: white;
-    border: 1px solid #ddd;
-    border-radius: 4px;
+    background: white;
+    border: 2px solid #f48fb1;
+    border-radius: 8px;
     padding: 0.5rem;
     font-size: 0.9rem;
     color: #333;
@@ -363,16 +379,17 @@ input[type="range"]:focus {
 .story-section {
     margin-top: 1rem;
     padding: 1rem;
-    background-color: #f8f9fa;
-    border: 1px solid #ddd;
-    border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    background: linear-gradient(135deg, #fce4ec, #f8bbd0);
+    border: 2px solid #f48fb1;
+    border-radius: 12px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
 .story-section h3 {
     margin-bottom: 1rem;
-    font-size: 1.2rem;
-    color: #2c3e50;
+    font-size: 1.4rem;
+    color: #880e4f;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
 }
 
 .story-type-selector {
@@ -390,9 +407,9 @@ input[type="range"]:focus {
 .story-box {
     height: 200px;
     overflow-y: auto;
-    background-color: white;
-    border: 1px solid #ddd;
-    border-radius: 4px;
+    background: white;
+    border: 2px solid #f48fb1;
+    border-radius: 8px;
     padding: 0.5rem;
     font-size: 0.9rem;
     color: #333;
@@ -402,16 +419,23 @@ input[type="range"]:focus {
 .combine-section {
     margin-top: 1rem;
     padding: 1rem;
-    background-color: #f8f9fa;
-    border: 1px solid #ddd;
-    border-radius: 8px;
+    background: linear-gradient(135deg, #fce4ec, #f8bbd0);
+    border: 2px solid #f48fb1;
+    border-radius: 12px;
     text-align: left; /* Align the title and content to the left */
     font-size: 1rem; /* Keep the result text size consistent */
-    color: #2c3e50;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    color: #880e4f;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
 .combine-section h3 {
-    font-size: 1.2rem; /* Match the title size of other sections */
+    font-size: 1.4rem; /* Match the title size of other sections */
     margin-bottom: 1rem;
+    color: #880e4f;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+.combine-section p {
+    font-size: 1rem;
+    color: #333;
 }
