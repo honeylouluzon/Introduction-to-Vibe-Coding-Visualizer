@@ -396,14 +396,30 @@ export class VisualizationManager {
 
         this.conversationInterval = setInterval(() => {
             const [entity1, entity2] = entities;
-            const question = this.getQuestion(entity1);
-            const answer = this.getAnswer(entity2, question);
+            this.runConversationCycle(entity1, entity2);
+        }, 5000); // New conversation cycle every 5 seconds
+    }
 
-            this.addConversationLine(entity1.type, question);
-            setTimeout(() => {
-                this.addConversationLine(entity2.type, answer);
-            }, 2000); // Delay the response by 2 seconds
-        }, 5000); // New conversation every 5 seconds
+    runConversationCycle(entity1, entity2) {
+        const question = this.getQuestion(entity1);
+        const answer = this.getAnswer(entity2, question);
+
+        this.addConversationLine(entity1.type, question);
+        setTimeout(() => {
+            this.addConversationLine(entity2.type, answer);
+
+            // Randomly decide if the answering entity will ask a follow-up question
+            if (Math.random() > 0.5) {
+                const followUpQuestion = this.getQuestion(entity2);
+                setTimeout(() => {
+                    this.addConversationLine(entity2.type, followUpQuestion);
+                    const followUpAnswer = this.getAnswer(entity1, followUpQuestion);
+                    setTimeout(() => {
+                        this.addConversationLine(entity1.type, followUpAnswer);
+                    }, 2000); // Delay the follow-up answer by 2 seconds
+                }, 2000); // Delay the follow-up question by 2 seconds
+            }
+        }, 2000); // Delay the response by 2 seconds
     }
 
     getQuestion(entity) {

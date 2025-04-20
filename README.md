@@ -86,12 +86,15 @@ A client-side web application for comparing different entities (humans, animals,
 - Each entity will:
   - Ask questions related to its highest dimension or consciousness score.
   - Respond to the other entity's question based on its own dimensions and consciousness score.
+  - Randomly ask a follow-up question after answering, keeping the conversation dynamic.
 - The conversation flows continuously in a chat box with a fixed size and a scroll bar to view previous messages.
 - The format of the conversation is:
   - **Entity Name**: Question or Answer
 - Example:
   - **Human**: "What do you see around you?"
   - **AI Bot**: "I see a beautiful landscape."
+  - **AI Bot**: "What motivates you to take action?"
+  - **Human**: "I enjoy taking on new challenges."
 
 ### Example
 
@@ -100,6 +103,8 @@ A client-side web application for comparing different entities (humans, animals,
   - **AI Bot**: "I remember my first interaction with humans. It was fascinating."
   - **Human**: "What motivates you to take action?"
   - **AI Bot**: "I enjoy taking on new challenges and learning from them."
+  - **AI Bot**: "What have you learned recently?"
+  - **Human**: "I recently learned about quantum physics. It's fascinating."
 
 ## Technical Details
 
