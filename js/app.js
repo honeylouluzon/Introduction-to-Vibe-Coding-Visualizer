@@ -134,6 +134,9 @@ class App {
 
         // Update the conversation section
         this.visualizationManager.updateConversationSection(entities);
+
+        // Update the story section
+        this.visualizationManager.updateStorySection(entities);
     }
 
     reset() {
@@ -152,6 +155,7 @@ class App {
 
         this.visualizationManager.updateActionSection([]); // Hide the action section on reset
         this.visualizationManager.updateConversationSection([]); // Hide the conversation section on reset
+        this.visualizationManager.updateStorySection([]); // Hide the story section on reset
     }
 
     save() {
@@ -189,6 +193,9 @@ class App {
 
             // Update the conversation section
             this.visualizationManager.updateConversationSection(entities);
+
+            // Update the story section
+            this.visualizationManager.updateStorySection(entities);
         } else {
             console.error(`Preset "${presetName}" not found`);
         }

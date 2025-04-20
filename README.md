@@ -107,6 +107,22 @@ A client-side web application for comparing different entities (humans, animals,
   - **AI Bot**: "What have you learned recently?"
   - **Human**: "I recently learned about quantum physics. It's fascinating."
 
+### Our Story Together
+
+- After dragging at least two entities to the canvas or selecting a preset, the "Our Story Together" section will appear.
+- This section generates a story based on:
+  - The selected entities.
+  - The type of story chosen (Love, Horror, Comedy, Drama, or Fantasy).
+  - The dimensions and consciousness scores of the entities.
+- Use the radio buttons to select the type of story.
+- The story is dynamically refreshed whenever:
+  - The dimensions of the entities change.
+  - The selected entities are updated.
+- The story is displayed in a fixed-size scrollable box.
+- Example:
+  - **Story Type**: Love
+  - **Story**: "Once upon a time, a human and an AI discovered a shared passion for art. Together, they created masterpieces that inspired the world."
+
 ## Technical Details
 
 - Built with vanilla JavaScript (ES6+)

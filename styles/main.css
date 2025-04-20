@@ -359,3 +359,40 @@ input[type="range"]:focus {
     color: #333;
     line-height: 1.4;
 }
+
+.story-section {
+    margin-top: 1rem;
+    padding: 1rem;
+    background-color: #f8f9fa;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.story-section h3 {
+    margin-bottom: 1rem;
+    font-size: 1.2rem;
+    color: #2c3e50;
+}
+
+.story-type-selector {
+    margin-bottom: 1rem;
+}
+
+.story-type-selector label {
+    margin-right: 1rem;
+    font-size: 1rem;
+    color: #333;
+}
+
+.story-box {
+    height: 200px;
+    overflow-y: auto;
+    background-color: white;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    padding: 0.5rem;
+    font-size: 0.9rem;
+    color: #333;
+    line-height: 1.4;
+}

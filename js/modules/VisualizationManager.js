@@ -10,9 +10,13 @@ export class VisualizationManager {
         this.conversationBox = document.querySelector('.conversation-box'); // Reference to the conversation box
         this.conversationInterval = null; // Interval for automated conversation
         this.currentTurn = 0; // Track whose turn it is to ask a question
+        this.storySection = document.querySelector('.story-section'); // Reference to the story section
+        this.storyBox = document.querySelector('.story-box'); // Reference to the story box
+        this.storyTypeSelector = document.querySelector('.story-type-selector'); // Reference to the story type selector
         this.initializeChart();
         this.hideChart(); // Initially hide the chart
         this.initializeActions();
+        this.initializeStoryTypeSelector();
     }
 
     initializeChart() {
@@ -506,5 +510,57 @@ export class VisualizationManager {
         line.innerHTML = `<strong>${sender}:</strong> ${text}`;
         this.conversationBox.appendChild(line);
         this.conversationBox.scrollTop = this.conversationBox.scrollHeight; // Auto-scroll to the latest message
+    }
+
+    initializeStoryTypeSelector() {
+        const storyTypeRadios = this.storyTypeSelector.querySelectorAll('input[name="story-type"]');
+        storyTypeRadios.forEach(radio => {
+            radio.addEventListener('change', () => {
+                const entities = window.app.entityManager.getAllEntities();
+                if (entities.length >= 2) {
+                    this.updateStorySection(entities);
+                }
+            });
+        });
+    }
+
+    updateStorySection(entities) {
+        if (entities.length < 2) {
+            this.storySection.style.display = 'none'; // Hide the story section if less than 2 entities
+            return;
+        }
+
+        this.storySection.style.display = 'block'; // Show the story section
+        const storyType = this.storyTypeSelector.querySelector('input[name="story-type"]:checked').value;
+        const story = this.generateStory(entities, storyType);
+        this.storyBox.innerHTML = story;
+    }
+
+    generateStory(entities, storyType) {
+        const [entity1, entity2] = entities;
+        const dataset = this.getStoryDataset();
+        const key = `${entity1.type}-${entity2.type}-${storyType}`;
+        const stories = dataset[key] || ["No story available for this combination."];
+
+        // Select a random story from the dataset
+        return stories[Math.floor(Math.random() * stories.length)];
+    }
+
+    getStoryDataset() {
+        return {
+            "human-ai-love": [
+                "Once upon a time, a human and an AI discovered a shared passion for art. Together, they created masterpieces that inspired the world.",
+                "In a world where technology and humanity coexisted, a human and an AI found love through their shared curiosity for the universe."
+            ],
+            "human-dog-comedy": [
+                "A human and a dog decided to open a bakery. The dog kept eating the cookies, and the human had to chase it around the kitchen!",
+                "One day, a human tried to teach their dog how to play chess. The dog kept knocking over the pieces, and they both ended up laughing."
+            ],
+            "ai-ai-fantasy": [
+                "Two AIs ventured into a digital realm, where they battled rogue algorithms and uncovered the secrets of the cyber world.",
+                "In a futuristic world, two AIs joined forces to create a utopia where humans and machines lived in harmony."
+            ],
+            // Add more combinations of entity pairs, story types, and stories here
+        };
     }
 }
