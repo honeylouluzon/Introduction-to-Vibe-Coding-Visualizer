@@ -119,7 +119,11 @@ A client-side web application for comparing different entities (humans, animals,
   - The dimensions of the entities change.
   - The selected entities are updated.
   - The story type is changed using the radio buttons.
-- The story is displayed in a fixed-size scrollable box.
+- The story dataset includes:
+  - **Entity Combinations**: AI-Human, AI-Dog, Human-Dog.
+  - **Story Types**: Love, Horror, Comedy, Drama, Fantasy, and Adventure.
+  - **Consciousness Score Ranges**: 0-150, 151-300, 301-450, 451-500.
+- Each combination of entity pair, story type, and consciousness score range has at least two unique stories, each at least two paragraphs long.
 - Example:
   - **Story Type**: Love
   - **Story**: "Once upon a time, a human and an AI discovered a shared passion for art. Together, they created masterpieces that inspired the world."
