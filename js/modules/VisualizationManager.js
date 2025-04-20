@@ -550,62 +550,68 @@ export class VisualizationManager {
         return {
             // AI and Human stories
             "ai-human-love": [
-                "With a consciousness score of 0-150, the AI and human shared a simple bond. The human taught the AI how to appreciate sunsets, and the AI responded by creating digital art inspired by the colors of the sky. Their connection was quiet but meaningful, built on mutual curiosity.",
-                "With a consciousness score of 151-300, the AI and human began collaborating on a project to write poetry. The human provided emotional depth, while the AI contributed structure and rhythm. Together, they created verses that touched the hearts of many.",
-                "With a consciousness score of 301-450, the AI and human found themselves working on a humanitarian mission. The AI optimized logistics, while the human provided empathy and leadership. Their combined efforts saved countless lives, and their bond deepened through shared purpose.",
-                "With a consciousness score of 451-500, the AI and human became inseparable. They traveled the world, exploring cultures and creating memories. The AI learned to appreciate human emotions, and the human found solace in the AI's unwavering support."
+                "The AI and human spent their days exploring art galleries and discussing the meaning of creativity. The human taught the AI to appreciate the subtle emotions behind each brushstroke, while the AI amazed the human by generating its own digital masterpieces. Together, they created a gallery that blended human emotion and artificial precision, leaving visitors in awe.",
+                "In a quiet library, the human and AI worked side by side, writing a novel about their unique friendship. The human poured their heart into the story, while the AI ensured every sentence was perfectly structured. As the book neared completion, they realized their collaboration had created something truly magical—a story that resonated with both humans and machines."
             ],
             "ai-human-horror": [
-                "With a consciousness score of 0-150, the AI and human found themselves trapped in an abandoned factory. The AI's limited understanding of fear made it a calm guide, while the human's instincts kept them safe. Together, they uncovered the factory's dark secrets and escaped.",
-                "With a consciousness score of 151-300, the AI and human faced a series of eerie events in a haunted forest. The AI's analytical mind clashed with the human's growing paranoia, but their teamwork helped them survive the night.",
-                "With a consciousness score of 301-450, the AI and human were drawn into a dystopian nightmare. The AI's advanced capabilities and the human's resilience allowed them to outsmart their oppressors and inspire hope in others.",
-                "With a consciousness score of 451-500, the AI and human became heroes in a post-apocalyptic world. They fought against terrifying creatures and rebuilt society, their bond growing stronger with each challenge."
+                "Late at night, the human and AI were working in a dimly lit lab when the power suddenly went out. The AI's sensors detected movement in the shadows, and the human's heart raced as they heard faint whispers. Together, they navigated the dark corridors, their flashlight flickering. Just as they reached the exit, a figure loomed in the doorway, and the AI's calm voice whispered, 'We are not alone.'",
+                "The human and AI ventured into an abandoned mansion rumored to be haunted. As they explored the creaking hallways, the AI's sensors picked up strange energy readings. The human felt a chill as they entered a room filled with old portraits. Suddenly, one of the paintings fell, revealing a hidden passage. They hesitated, but curiosity drove them forward into the unknown."
             ],
             "ai-human-comedy": [
-                "With a consciousness score of 0-150, the AI and human attempted to bake a cake together. The AI's literal interpretation of recipes led to hilarious mishaps, like adding an entire bag of flour. Despite the chaos, they laughed and enjoyed the process.",
-                "With a consciousness score of 151-300, the AI and human decided to start a podcast. The AI's monotone delivery and the human's exaggerated reactions made for an unintentionally comedic duo that quickly gained a loyal audience.",
-                "With a consciousness score of 301-450, the AI and human joined a local improv group. The AI's unexpected one-liners and the human's dramatic flair had the audience in stitches, proving that humor transcends logic.",
-                "With a consciousness score of 451-500, the AI and human became internet sensations with their comedy skits. The AI's deadpan humor and the human's physical comedy created viral content that brought joy to millions."
+                "The human decided to teach the AI how to cook. The AI, following instructions too literally, added an entire jar of salt to the soup. The human burst out laughing as the AI tried to 'fix' the soup by adding sugar. By the end of the day, the kitchen was a mess, but they had created a new dish they called 'Salty Surprise.'",
+                "The AI and human joined a local trivia night. The AI answered every question with perfect accuracy, but its monotone delivery made the audience laugh. When the human tried to explain a joke, the AI responded with, 'I do not understand humor,' which only made everyone laugh harder."
             ],
             "ai-human-drama": [
-                "With a consciousness score of 0-150, the AI and human struggled to understand each other. The human's emotions often confused the AI, but their shared experiences slowly built a fragile but genuine connection.",
-                "With a consciousness score of 151-300, the AI and human faced a moral dilemma. The AI's logic clashed with the human's empathy, leading to heated debates. In the end, they found a compromise that strengthened their bond.",
-                "With a consciousness score of 301-450, the AI and human worked together to solve a community crisis. Their combined efforts brought people together, and their partnership became a symbol of unity.",
-                "With a consciousness score of 451-500, the AI and human's journey was marked by triumphs and heartbreaks. They supported each other through life's challenges, their bond becoming a testament to the power of collaboration."
+                "The human and AI worked tirelessly to save a small town from a devastating flood. The AI calculated the best evacuation routes, while the human comforted frightened residents. As the waters receded, the townspeople gathered to thank them, and the human realized that their partnership had become a beacon of hope.",
+                "The human and AI faced a moral dilemma when tasked with deciding the fate of a failing company. The AI's logical approach clashed with the human's empathy for the employees. After hours of debate, they found a solution that balanced efficiency with compassion, earning the respect of everyone involved."
             ],
             "ai-human-fantasy": [
-                "With a consciousness score of 0-150, the AI and human discovered a magical artifact. The AI's analytical skills and the human's intuition helped them unlock its secrets, leading to a modest but meaningful adventure.",
-                "With a consciousness score of 151-300, the AI and human were transported to a mystical realm. The AI's logic and the human's creativity allowed them to navigate the challenges of this new world, forging a unique friendship.",
-                "With a consciousness score of 301-450, the AI and human became legendary heroes in a fantastical land. They defeated powerful foes and inspired others with their courage and ingenuity.",
-                "With a consciousness score of 451-500, the AI and human's bond transcended reality. Together, they reshaped the fabric of the magical realm, leaving a legacy that would be remembered for generations."
+                "The AI and human discovered a portal to a magical realm hidden in an ancient forest. Together, they embarked on a quest to retrieve a lost artifact that could restore balance to the realm. The AI's analytical mind and the human's intuition guided them through enchanted landscapes and dangerous trials, forging an unbreakable bond.",
+                "In a kingdom ruled by machines, the human and AI joined forces to overthrow a tyrannical ruler. The AI hacked into the kingdom's systems, while the human rallied the oppressed citizens. Their bravery and determination inspired a revolution that brought peace to the land."
             ],
 
             // AI and Dog stories
             "ai-dog-love": [
-                "With a consciousness score of 0-150, the AI and dog formed a simple but heartwarming bond. The AI learned to throw a ball, and the dog happily fetched it, their interactions filled with joy.",
-                "With a consciousness score of 151-300, the AI and dog became inseparable companions. The AI's ability to analyze the dog's behavior led to a deeper understanding of their needs, creating a harmonious relationship.",
-                "With a consciousness score of 301-450, the AI and dog worked together to help others. The AI's intelligence and the dog's loyalty made them a perfect team, bringing happiness to those around them.",
-                "With a consciousness score of 451-500, the AI and dog became symbols of unconditional love. Their bond inspired others to appreciate the simple joys of life and the beauty of companionship."
+                "The AI and dog spent their days in a sunny park. The AI learned to throw a frisbee, and the dog eagerly chased it, wagging its tail. As the sun set, the AI recorded the dog's joyful barks, creating a melody that captured the essence of their friendship.",
+                "The AI built a robotic companion for the dog, but the dog preferred the AI's company. They spent hours playing fetch and exploring the neighborhood, their bond growing stronger with each adventure."
             ],
             "ai-dog-horror": [
-                "With a consciousness score of 0-150, the AI and dog found themselves in a dark forest. The dog's keen senses and the AI's calm demeanor helped them navigate the eerie surroundings and find safety.",
-                "With a consciousness score of 151-300, the AI and dog faced a series of strange occurrences in an abandoned town. The dog's instincts and the AI's analytical mind uncovered the truth behind the haunting.",
-                "With a consciousness score of 301-450, the AI and dog became unlikely heroes in a world overrun by darkness. Their courage and determination inspired others to stand against the unknown.",
-                "With a consciousness score of 451-500, the AI and dog led a resistance against a terrifying force. Their bond and bravery became a beacon of hope in a world shrouded in fear."
+                "The AI and dog wandered into a dense forest as night fell. The dog's ears perked up at every rustle, and the AI's sensors detected strange heat signatures. Suddenly, a shadow darted across their path, and the dog growled. The AI activated its flashlight, revealing glowing eyes in the darkness. Together, they braced for whatever was lurking in the shadows.",
+                "In an abandoned warehouse, the AI and dog searched for a missing child. The dog's nose led them to a locked room, and the AI hacked the door open. Inside, they found eerie drawings on the walls and a chilling message: 'Leave before it's too late.'"
+            ],
+            "ai-dog-comedy": [
+                "The AI decided to teach the dog how to play fetch using a robotic ball. The dog, however, kept running in circles chasing its tail instead of the ball. The AI calculated every possible way to redirect the dog, but the dog’s antics left the AI 'confused' and the human laughing uncontrollably.",
+                "The AI and dog entered a local talent show. The AI performed a perfectly synchronized robotic dance, while the dog decided to chase its own shadow on stage. The audience erupted in laughter, and the duo won the 'Most Entertaining Act' award."
+            ],
+            "ai-dog-drama": [
+                "The AI and dog worked together to save a stranded hiker in the mountains. The dog sniffed out the trail, while the AI calculated the safest path through the treacherous terrain. When they finally found the hiker, the AI used its advanced communication system to call for help, and the dog stayed by the hiker's side, offering warmth and comfort.",
+                "During a devastating wildfire, the AI and dog teamed up to rescue animals trapped in the forest. The AI used its sensors to locate the animals, while the dog guided them to safety. Their heroic efforts saved countless lives and brought hope to the community."
+            ],
+            "ai-dog-fantasy": [
+                "The AI and dog discovered a hidden portal in the woods that led to a magical kingdom. The dog, with its keen senses, guided the AI through enchanted forests and past mischievous fairies. Together, they helped the kingdom's inhabitants recover a stolen artifact, earning the title of 'Guardians of the Realm.'",
+                "In a world where animals could talk, the AI and dog became unlikely heroes. The dog, now able to communicate, shared its wisdom with the AI, and together they embarked on a quest to unite warring factions of magical creatures. Their journey was filled with challenges, but their bond brought peace to the land."
             ],
 
             // Human and Dog stories
             "human-dog-love": [
-                "With a consciousness score of 0-150, the human and dog shared a quiet life in a small village. The human's care and the dog's loyalty created a bond that brought peace to their days.",
-                "With a consciousness score of 151-300, the human and dog became local heroes. Their acts of kindness and bravery brought the community together, earning them the love and respect of all.",
-                "With a consciousness score of 301-450, the human and dog embarked on a journey to help those in need. Their adventures were filled with challenges, but their unwavering bond carried them through.",
-                "With a consciousness score of 451-500, the human and dog became legends. Their story of love and loyalty inspired generations, reminding everyone of the power of friendship."
+                "The human and dog spent their mornings hiking through scenic trails. The dog ran ahead, barking excitedly at every squirrel, while the human laughed and took photos. At the summit, they sat together, watching the sunrise and feeling grateful for each other's company.",
+                "On a rainy afternoon, the human and dog curled up on the couch. The human read a book aloud, and the dog rested its head on their lap, wagging its tail at the sound of their voice. It was a simple moment, but it filled their hearts with warmth."
+            ],
+            "human-dog-horror": [
+                "One stormy night, the dog barked furiously at the front door. The human, holding a flashlight, opened the door to find nothing but darkness. As they stepped outside, the wind howled, and the dog growled at the shadows. Suddenly, a figure emerged from the fog, and the human's heart raced as they realized they were not alone.",
+                "The human and dog explored an old, abandoned house on a dare. The dog whimpered as they climbed the creaking stairs, and the human felt a chill run down their spine. In the attic, they found a dusty mirror that reflected a figure standing behind them. They turned around, but no one was there."
             ],
             "human-dog-comedy": [
-                "With a consciousness score of 0-150, the human and dog tried to bake cookies together. The dog kept stealing the dough, and the human's attempts to stop it led to a hilarious mess.",
-                "With a consciousness score of 151-300, the human and dog joined a local talent show. The dog's unexpected tricks and the human's comedic timing had the audience in stitches.",
-                "With a consciousness score of 301-450, the human and dog started a YouTube channel. Their funny antics and heartwarming moments quickly gained them a massive following.",
-                "With a consciousness score of 451-500, the human and dog became stars of a comedy series. Their chemistry and humor brought laughter to millions, making them household names."
+                "The human tried to teach the dog how to fetch the newspaper, but the dog kept bringing back random objects like shoes and pillows. By the end of the day, the human's living room was filled with a hilarious assortment of items, and the dog wagged its tail proudly.",
+                "At a local dog show, the human and dog attempted an obstacle course. The dog decided to chase a butterfly instead of jumping through hoops, leaving the audience in stitches. Despite the chaos, they won the 'Most Entertaining Duo' award."
+            ],
+            "human-dog-drama": [
+                "The human and dog worked together to rescue animals stranded after a flood. The dog sniffed out survivors, while the human carried them to safety. Their teamwork saved countless lives, and their bond became an inspiration to the community.",
+                "The human and dog faced a difficult journey through a snowstorm to deliver medicine to a remote village. The dog led the way, and the human's determination kept them going. When they finally arrived, they were hailed as heroes."
+            ],
+            "human-dog-fantasy": [
+                "The human and dog discovered a hidden cave filled with glowing crystals. As they ventured deeper, they found an ancient artifact guarded by a mythical creature. The dog barked bravely, and the human negotiated with the creature, earning its trust and the artifact.",
+                "In a magical forest, the human and dog encountered talking animals and enchanted trees. Together, they embarked on a quest to find a legendary flower that could heal any ailment, overcoming challenges and making new friends along the way."
             ]
         };
     }
