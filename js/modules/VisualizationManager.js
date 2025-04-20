@@ -343,6 +343,9 @@ export class VisualizationManager {
             this.resultContainer.innerHTML = ''; // Clear the result
             this.resultContainer.style.display = 'none'; // Hide the result container
         }
+
+        // Hide the "Combine Together" section
+        this.combineSection.style.display = 'none';
     }
 
     showChart() {
