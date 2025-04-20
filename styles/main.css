@@ -168,15 +168,15 @@ body {
     height: 100%;
     min-height: 400px;
     position: relative;
-    background: #3a3a3a; /* Matte dark gray */
-    color: #f5f5f5; /* Light text for dark background */
+    background: #f8bbd0; /* Soft pink background if text cannot be white */
+    color: #ffffff; /* White text for chart labels */
     border: 2px solid #d81b60; /* Matte pink border */
     border-radius: 12px;
     box-shadow: 0 6px 12px rgba(0, 0, 0, 0.4);
 }
 
 .chart-container canvas {
-    color: #ffffff; /* White text for chart labels */
+    color: #ffffff !important; /* Force white text for chart labels */
 }
 
 .chart-container .chart-legend {
@@ -231,7 +231,7 @@ body {
 
 .dimension-slider {
     margin-bottom: 1rem;
-    background: #3a3a3a; /* Matte dark gray background */
+    background: #4a4a4a; /* Matte medium gray background */
     border: 2px solid #d81b60; /* Matte pink border */
     border-radius: 12px;
     padding: 1rem;
