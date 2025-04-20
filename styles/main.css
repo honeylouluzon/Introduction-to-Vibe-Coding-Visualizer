@@ -8,23 +8,25 @@
 body {
     font-family: 'Poppins', sans-serif;
     line-height: 1.6;
-    color: #333;
-    background: linear-gradient(135deg, #fce4ec, #f8bbd0); /* Soft pink gradient */
+    color: #fff;
+    background: linear-gradient(135deg, #2c3e50, #880e4f); /* Dark futuristic gradient with girly touch */
 }
 
 /* Header styles */
 .header {
-    background: linear-gradient(90deg, #ec407a, #f48fb1); /* Vibrant pink gradient */
+    background: linear-gradient(90deg, #ec407a, #6a1b9a); /* Vibrant pink-purple gradient */
     color: white;
     padding: 1rem;
     text-align: center;
     border-bottom: 4px solid #f06292;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
 }
 
 .header h1 {
-    font-size: 2rem;
+    font-size: 2.2rem;
     font-weight: 700;
-    text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.2);
+    text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.4);
+    letter-spacing: 1px;
 }
 
 /* Main container layout */
@@ -38,11 +40,11 @@ body {
 /* Sidebar styles */
 .sidebar {
     width: 25%;
-    background: linear-gradient(135deg, #f8bbd0, #fce4ec); /* Soft pink gradient */
+    background: linear-gradient(135deg, #880e4f, #2c3e50); /* Dark edgy gradient */
     border-radius: 12px;
     padding: 1rem;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    border: 2px solid #f48fb1;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.4);
+    border: 2px solid #f06292;
 }
 
 .entity-list {
@@ -51,10 +53,11 @@ body {
 
 .entity-list h2,
 .presets h2 {
-    font-size: 1.4rem;
+    font-size: 1.5rem;
     margin-bottom: 1rem;
-    color: #880e4f;
-    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+    color: #f48fb1;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
+    text-transform: uppercase;
 }
 
 .entity {
@@ -62,7 +65,7 @@ body {
     align-items: center;
     padding: 0.5rem;
     margin-bottom: 0.5rem;
-    background: linear-gradient(135deg, #fce4ec, #f8bbd0);
+    background: linear-gradient(135deg, #f48fb1, #6a1b9a);
     border-radius: 8px;
     cursor: grab;
     transition: all 0.3s ease;
@@ -71,9 +74,9 @@ body {
 }
 
 .entity:hover {
-    background: linear-gradient(135deg, #f8bbd0, #f48fb1);
+    background: linear-gradient(135deg, #ec407a, #880e4f);
     transform: translateY(-2px);
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
 }
 
 .entity:active {
@@ -103,18 +106,18 @@ body {
     width: 100%;
     padding: 0.5rem;
     margin-bottom: 0.5rem;
-    background: linear-gradient(135deg, #f8bbd0, #fce4ec);
+    background: linear-gradient(135deg, #6a1b9a, #ec407a);
     border: none;
     border-radius: 8px;
     cursor: pointer;
     transition: background-color 0.3s, transform 0.2s;
     font-weight: bold;
-    color: #880e4f;
+    color: white;
+    text-transform: uppercase;
 }
 
 .preset-btn:hover {
-    background: linear-gradient(135deg, #f48fb1, #ec407a);
-    color: white;
+    background: linear-gradient(135deg, #ec407a, #f06292);
     transform: translateY(-2px);
 }
 
@@ -133,18 +136,18 @@ body {
 
 .canvas-area {
     flex: 1;
-    background: linear-gradient(135deg, #ffffff, #fce4ec);
+    background: linear-gradient(135deg, #2c3e50, #6a1b9a);
     border-radius: 12px;
     padding: 1rem;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.4);
     min-height: 400px;
     position: relative;
-    border: 2px solid #f48fb1;
+    border: 2px solid #ec407a;
     transition: all 0.3s ease;
 }
 
 .canvas-area.drag-target {
-    border: 2px solid #ec407a;
+    border: 2px solid #f06292;
     background: rgba(236, 64, 122, 0.1);
 }
 
@@ -168,20 +171,21 @@ body {
     left: 50%;
     transform: translate(-50%, -50%);
     text-align: center;
-    color: #880e4f;
-    font-size: 1.2rem;
+    color: #f48fb1;
+    font-size: 1.4rem;
     font-weight: bold;
+    text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.3);
     z-index: 1;
     pointer-events: none;
 }
 
 /* Control panel styles */
 .control-panel {
-    background: linear-gradient(135deg, #fce4ec, #f8bbd0);
+    background: linear-gradient(135deg, #6a1b9a, #2c3e50);
     border-radius: 12px;
     padding: 1rem;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    border: 2px solid #f48fb1;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.4);
+    border: 2px solid #ec407a;
 }
 
 .dimension-controls {
@@ -233,15 +237,16 @@ body {
     padding: 0.5rem 1rem;
     border: none;
     border-radius: 8px;
-    background: linear-gradient(135deg, #ec407a, #f48fb1);
+    background: linear-gradient(135deg, #ec407a, #6a1b9a);
     color: white;
     cursor: pointer;
     transition: background-color 0.3s, transform 0.2s;
     font-weight: bold;
+    text-transform: uppercase;
 }
 
 .btn:hover {
-    background: linear-gradient(135deg, #f48fb1, #ec407a);
+    background: linear-gradient(135deg, #f06292, #ec407a);
     transform: translateY(-2px);
 }
 
@@ -291,13 +296,13 @@ input[type="range"]:focus {
 .comparison-result {
     margin-top: 1rem; /* Space between the chart and the result */
     padding: 1rem;
-    background: linear-gradient(135deg, #fce4ec, #f8bbd0);
-    border: 2px solid #f48fb1;
+    background: linear-gradient(135deg, #6a1b9a, #2c3e50);
+    border: 2px solid #ec407a;
     border-radius: 12px;
     font-size: 1rem;
-    color: #880e4f;
+    color: #f48fb1;
     text-align: center;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.4);
     width: 100%; /* Ensure it spans the full width below the chart */
 }
 
@@ -351,45 +356,47 @@ input[type="range"]:focus {
 .conversation-section {
     margin-top: 1rem;
     padding: 1rem;
-    background: linear-gradient(135deg, #fce4ec, #f8bbd0);
-    border: 2px solid #f48fb1;
+    background: linear-gradient(135deg, #6a1b9a, #2c3e50);
+    border: 2px solid #ec407a;
     border-radius: 12px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.4);
 }
 
 .conversation-section h3 {
     margin-bottom: 1rem;
     font-size: 1.4rem;
-    color: #880e4f;
-    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+    color: #f48fb1;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
+    text-transform: uppercase;
 }
 
 .conversation-box {
     height: 200px;
     overflow-y: auto;
-    background: white;
-    border: 2px solid #f48fb1;
+    background: #2c3e50;
+    border: 2px solid #ec407a;
     border-radius: 8px;
     padding: 0.5rem;
     font-size: 0.9rem;
-    color: #333;
+    color: #fff;
     line-height: 1.4;
 }
 
 .story-section {
     margin-top: 1rem;
     padding: 1rem;
-    background: linear-gradient(135deg, #fce4ec, #f8bbd0);
-    border: 2px solid #f48fb1;
+    background: linear-gradient(135deg, #6a1b9a, #2c3e50);
+    border: 2px solid #ec407a;
     border-radius: 12px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.4);
 }
 
 .story-section h3 {
     margin-bottom: 1rem;
     font-size: 1.4rem;
-    color: #880e4f;
-    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+    color: #f48fb1;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
+    text-transform: uppercase;
 }
 
 .story-type-selector {
@@ -407,35 +414,36 @@ input[type="range"]:focus {
 .story-box {
     height: 200px;
     overflow-y: auto;
-    background: white;
-    border: 2px solid #f48fb1;
+    background: #2c3e50;
+    border: 2px solid #ec407a;
     border-radius: 8px;
     padding: 0.5rem;
     font-size: 0.9rem;
-    color: #333;
+    color: #fff;
     line-height: 1.4;
 }
 
 .combine-section {
     margin-top: 1rem;
     padding: 1rem;
-    background: linear-gradient(135deg, #fce4ec, #f8bbd0);
-    border: 2px solid #f48fb1;
+    background: linear-gradient(135deg, #6a1b9a, #2c3e50);
+    border: 2px solid #ec407a;
     border-radius: 12px;
     text-align: left; /* Align the title and content to the left */
     font-size: 1rem; /* Keep the result text size consistent */
-    color: #880e4f;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    color: #f48fb1;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.4);
 }
 
 .combine-section h3 {
     font-size: 1.4rem; /* Match the title size of other sections */
     margin-bottom: 1rem;
-    color: #880e4f;
-    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+    color: #f48fb1;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
+    text-transform: uppercase;
 }
 
 .combine-section p {
     font-size: 1rem;
-    color: #333;
+    color: #fff;
 }
