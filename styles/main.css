@@ -406,7 +406,7 @@ input[type="range"]:focus {
     border: 1px solid #ddd;
     border-radius: 8px;
     text-align: center;
-    font-size: 1.5rem;
+    font-size: 1.3rem; /* Reduced from 1.5rem */
     font-weight: bold;
     color: #2c3e50;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
