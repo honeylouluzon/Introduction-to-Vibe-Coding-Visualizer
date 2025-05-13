@@ -568,6 +568,7 @@ export class VisualizationManager {
         line.innerHTML = `<strong>${sender}:</strong> ${text}`;
         this.conversationBox.appendChild(line);
         this.conversationBox.scrollTop = this.conversationBox.scrollHeight; // Auto-scroll to the latest message
+        
     }
 
     initializeStoryTypeSelector() {
