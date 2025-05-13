@@ -520,7 +520,7 @@ input[type="range"]:focus {
 .hamburger-menu {
     position:flex;
     top: 10px;
-    right: 10px;
+    left: 10px;
 }
 
 .menu-toggle {
