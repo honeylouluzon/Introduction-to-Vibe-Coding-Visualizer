@@ -15,15 +15,19 @@
     <div class="hamburger-menu">
         <button id="menu-toggle">☰</button>
         <div id="menu-content" class="hidden">
-            <h3>API Settings</h3>
-            <label for="api-key">API Key:</label>
-            <input type="text" id="api-key" placeholder="Enter your API Key">
-            <label for="model">Model:</label>
-            <select id="model">
-                <option value="default-model">Default Model</option>
-                <option value="advanced-model">Advanced Model</option>
+            <h2>Settings</h2>
+            <!-- Model Selection -->
+            <label for="model-select">Select Model:</label>
+            <select id="model-select">
+                <option value="model1">Model 1</option>
+                <option value="model2">Model 2</option>
+                <option value="model3">Model 3</option>
             </select>
-            <button id="save-settings">Save</button>
+            <!-- API Key Input -->
+            <label for="api-key">API Key:</label>
+            <input type="text" id="api-key" placeholder="Enter your API key">
+            <!-- Save Button -->
+            <button id="save-settings">Save Settings</button>
         </div>
     </div>
 
@@ -156,25 +160,5 @@
             alert('Settings saved!');
         });
     </script>
-
-    <style>
-        .hamburger-menu {
-            position: fixed;
-            top: 10px;
-            right: 10px;
-        }
-        #menu-content.hidden {
-            display: none;
-        }
-        #menu-content {
-            background: #fff;
-            border: 1px solid #ccc;
-            padding: 10px;
-            position: absolute;
-            top: 40px;
-            right: 0;
-            z-index: 1000;
-        }
-    </style>
 </body>
 </html>
