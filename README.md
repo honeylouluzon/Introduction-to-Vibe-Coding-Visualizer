@@ -151,6 +151,19 @@ A client-side web application for comparing different entities (humans, animals,
     - **201-400**: "A half-dog above and a human below, good at logic and reasoning but with limited memory."
     - **401-500**: "A mythical being with the loyalty of a dog and the intellect of a human, capable of extraordinary feats."
 
+## Podcast-like Conversation Feature
+
+We’ve introduced a new feature that allows users to experience conversations in a podcast-like format. This feature enhances the interactivity of the application by enabling text-to-speech functionality directly within the conversation box.
+
+### How It Works
+1. **Podcast Button**: A button is now available below the conversation box. When clicked, it activates and reads the text aloud, simulating a podcast experience.
+2. **Dynamic Content**: The text-to-speech functionality targets the content dynamically generated within the `div` element with the class `conversation-box`. This ensures that the latest updates from the `VisualizationManager.js` are always read aloud.
+
+### Why This Matters
+This feature transforms static text into an engaging auditory experience, making the application more accessible and immersive for users.
+
+> **Note**: This section is still a work in progress. We are actively refining the flow and tone to ensure it feels like a natural conversation or podcast. Feedback is welcome!
+
 ## Technical Details
 
 - Built with vanilla JavaScript (ES6+)
