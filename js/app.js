@@ -219,7 +219,7 @@ function renderSettingsMenu() {
     const settingsContainer = document.getElementById("model-content");
 
     // Create model selection dropdown
-    const modelSelect = document.createElement("model-select");
+    const modelSelect = document.createElement("select");
     modelSelect.id = "model-select";
 
     Object.keys(SUPPORTED_MODELS).forEach((modelKey) => {
