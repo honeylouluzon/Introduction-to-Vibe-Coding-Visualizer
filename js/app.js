@@ -241,6 +241,21 @@ function renderSettingsMenu() {
     modelSelect.value = savedModel;
 }
 
+// Toggle menu visibility
+document.getElementById('menu-toggle').addEventListener('click', () => {
+    const menuContent = document.getElementById('menu-content');
+    menuContent.classList.toggle('hidden');
+});
+
+// Save settings
+document.getElementById('save-settings').addEventListener('click', () => {
+    const apiKey = document.getElementById('api-key').value;
+    const model = document.getElementById('model-select').value; // Updated to match the correct ID
+    localStorage.setItem('apiKey', apiKey);
+    localStorage.setItem('model', model);
+    alert('Settings saved!');
+});
+
 // Call renderSettingsMenu on page load
 document.addEventListener("DOMContentLoaded", renderSettingsMenu);
 

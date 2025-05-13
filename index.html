@@ -143,22 +143,5 @@
 
     <script src="js/app.js" type="module"></script>
     <script src="js/modules/Text2Voice.js" type="module"></script>
-
-    <script>
-        // Toggle menu visibility
-        document.getElementById('menu-toggle').addEventListener('click', () => {
-            const menuContent = document.getElementById('menu-content');
-            menuContent.classList.toggle('hidden');
-        });
-
-        // Save settings
-        document.getElementById('save-settings').addEventListener('click', () => {
-            const apiKey = document.getElementById('api-key').value;
-            const model = document.getElementById('model').value;
-            localStorage.setItem('apiKey', apiKey);
-            localStorage.setItem('model', model);
-            alert('Settings saved!');
-        });
-    </script>
 </body>
 </html>
