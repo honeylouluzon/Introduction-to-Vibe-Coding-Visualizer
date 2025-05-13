@@ -518,7 +518,7 @@ input[type="range"]:focus {
 
 /* Hamburger menu styles */
 .hamburger-menu {
-    position: fixed;
+    position:flex;
     top: 10px;
     right: 10px;
 }
@@ -526,11 +526,6 @@ input[type="range"]:focus {
 .menu-toggle {
     background-color: rgba(240, 98, 146, 0.2); /* Semi-transparent light pink background */
     color: #f06292; /* Soft matte pink */
-    /* border: 2px solid #f06292; /* Pink border */
-    /*border-radius: 50%; /* Circular button */
-    /*padding: 10px;
-    cursor: pointer; */
-    transition: background-color 0.3s ease, transform 0.2s ease;
 }
 
 .menu-toggle:hover {
