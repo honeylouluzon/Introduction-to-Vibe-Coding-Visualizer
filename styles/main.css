@@ -524,7 +524,7 @@ input[type="range"]:focus {
 }
 
 .menu-toggle {
-    background: rgba(240, 98, 146, 0.2); /* Semi-transparent light pink background */
+    background-color: rgba(240, 98, 146, 0.2); /* Semi-transparent light pink background */
     color: #f06292; /* Soft matte pink */
     /* border: 2px solid #f06292; /* Pink border */
     /*border-radius: 50%; /* Circular button */
