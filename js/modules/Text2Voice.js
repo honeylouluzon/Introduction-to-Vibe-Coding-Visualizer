@@ -1,5 +1,5 @@
 const podcastButton = document.getElementById('podcast-button');
-const conversationText = document.querySelector('.conversation-box'); //getElementById('conversation-text');
+const conversationText = document.getElementById('conversation-text');
 let isSpeaking = false;
 let speechSynthesisUtterance;
 
