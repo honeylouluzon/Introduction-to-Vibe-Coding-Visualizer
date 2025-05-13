@@ -12,6 +12,21 @@
         <h1>Consciousness Continuum Visualizer</h1>
     </header>
 
+    <div class="hamburger-menu">
+        <button id="menu-toggle">☰</button>
+        <div id="menu-content" class="hidden">
+            <h3>API Settings</h3>
+            <label for="api-key">API Key:</label>
+            <input type="text" id="api-key" placeholder="Enter your API Key">
+            <label for="model">Model:</label>
+            <select id="model">
+                <option value="default-model">Default Model</option>
+                <option value="advanced-model">Advanced Model</option>
+            </select>
+            <button id="save-settings">Save</button>
+        </div>
+    </div>
+
     <div class="app-container">
         <aside class="sidebar">
             <div class="entity-list">
@@ -124,5 +139,42 @@
 
     <script src="js/app.js" type="module"></script>
     <script src="js/modules/Text2Voice.js" type="module"></script>
+
+    <script>
+        // Toggle menu visibility
+        document.getElementById('menu-toggle').addEventListener('click', () => {
+            const menuContent = document.getElementById('menu-content');
+            menuContent.classList.toggle('hidden');
+        });
+
+        // Save settings
+        document.getElementById('save-settings').addEventListener('click', () => {
+            const apiKey = document.getElementById('api-key').value;
+            const model = document.getElementById('model').value;
+            localStorage.setItem('apiKey', apiKey);
+            localStorage.setItem('model', model);
+            alert('Settings saved!');
+        });
+    </script>
+
+    <style>
+        .hamburger-menu {
+            position: fixed;
+            top: 10px;
+            right: 10px;
+        }
+        #menu-content.hidden {
+            display: none;
+        }
+        #menu-content {
+            background: #fff;
+            border: 1px solid #ccc;
+            padding: 10px;
+            position: absolute;
+            top: 40px;
+            right: 0;
+            z-index: 1000;
+        }
+    </style>
 </body>
 </html>

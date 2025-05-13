@@ -467,19 +467,19 @@ export class VisualizationManager {
         const asker = this.currentTurn % 2 === 0 ? entity1 : entity2;
         const responder = this.currentTurn % 2 === 0 ? entity2 : entity1;
 
-        const question = this.getQuestion(asker);
+        const question = getQuestion(asker);
         this.addConversationLine(asker.type, question);
 
         setTimeout(() => {
-            const answer = this.getAnswer(responder, question);
+            const answer = getAnswer(responder, question);
             this.addConversationLine(responder.type, answer);
 
             // Randomly decide if the responder will ask a follow-up question
             if (Math.rpandom() > 0.5) {
-                const followUpQuestion = this.getQuestion(responder);
+                const followUpQuestion = getQuestion(responder);
                 setTimeout(() => {
                     this.addConversationLine(responder.type, followUpQuestion);
-                    const followUpAnswer = this.getAnswer(asker, followUpQuestion);
+                    const followUpAnswer = getAnswer(asker, followUpQuestion);
                     setTimeout(() => {
                         this.addConversationLine(asker.type, followUpAnswer);
                     }, 2000); // Delay the follow-up answer by 2 seconds
@@ -488,79 +488,6 @@ export class VisualizationManager {
 
             this.currentTurn++; // Switch turns
         }, 2000); // Delay the response by 2 seconds
-    }
-
-    getQuestion(entity) {
-        const questions = {
-            perception: [
-                "What do you see around you?",
-                "How do you perceive the world today?",
-                "What catches your attention the most?"
-            ],
-            action: [
-                "What activity are you planning to do?",
-                "How do you stay active?",
-                "What motivates you to take action?"
-            ],
-            memory: [
-                "What is your favorite memory?",
-                "How do you remember important things?",
-                "What is something you will never forget?"
-            ],
-            learning: [
-                "What have you learned recently?",
-                "How do you approach learning new things?",
-                "What is the most interesting thing you've studied?"
-            ],
-            goalOrientation: [
-                "What is your current goal?",
-                "How do you stay focused on your objectives?",
-                "What drives you to achieve your ambitions?"
-            ]
-        };
-
-        const dimension = this.getHighestDimension(entity);
-        const dimensionQuestions = questions[dimension];
-        return dimensionQuestions[Math.floor(Math.random() * dimensionQuestions.length)];
-    }
-
-    getAnswer(entity, question) {
-        const answers = {
-            perception: [
-                "I see a beautiful landscape.",
-                "The world looks vibrant and full of life.",
-                "I notice the small details that others might miss."
-            ],
-            action: [
-                "I plan to go for a run.",
-                "Staying active keeps me energized.",
-                "I enjoy taking on new challenges."
-            ],
-            memory: [
-                "I remember my childhood fondly.",
-                "I keep a journal to remember important events.",
-                "Some memories are etched in my mind forever."
-            ],
-            learning: [
-                "I recently learned about quantum physics.",
-                "I enjoy exploring new topics every day.",
-                "Learning keeps my mind sharp and curious."
-            ],
-            goalOrientation: [
-                "My goal is to become the best version of myself.",
-                "I stay focused by breaking my goals into smaller tasks.",
-                "Ambition drives me to keep moving forward."
-            ]
-        };
-
-        const dimension = this.getHighestDimension(entity);
-        const dimensionAnswers = answers[dimension];
-        return dimensionAnswers[Math.floor(Math.random() * dimensionAnswers.length)];
-    }
-
-    getHighestDimension(entity) {
-        const dimensions = entity.dimensions;
-        return Object.keys(dimensions).reduce((a, b) => (dimensions[a] > dimensions[b] ? a : b));
     }
 
     addConversationLine(sender, text) {
@@ -686,4 +613,23 @@ export class VisualizationManager {
             ]
         };
     }
+}
+
+// Import LLM integration (referenced in Third Party.md)
+import { generateResponse } from './llmIntegration.js';
+
+// Modify getQuestion to use LLM
+export function getQuestion(context) {
+    return generateResponse({
+        prompt: `Generate a question based on the following context: ${context}`,
+        model: 'default-model' // Default model, configurable in settings
+    });
+}
+
+// Modify getAnswer to use LLM
+export function getAnswer(question) {
+    return generateResponse({
+        prompt: `Provide an answer to the following question: ${question}`,
+        model: 'default-model' // Default model, configurable in settings
+    });
 }
