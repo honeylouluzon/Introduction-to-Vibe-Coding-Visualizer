@@ -216,7 +216,7 @@ class App {
 
 // Function to render settings menu
 function renderSettingsMenu() {
-    const settingsContainer = document.getElementById("model-select");
+    const settingsContainer = document.getElementById("model-content");
 
     // Create model selection dropdown
     const modelSelect = document.createElement("select");
