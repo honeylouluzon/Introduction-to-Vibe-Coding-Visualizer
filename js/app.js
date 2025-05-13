@@ -2,6 +2,7 @@ import { EntityManager } from './modules/EntityManager.js';
 import { VisualizationManager } from './modules/VisualizationManager.js';
 import { UIManager } from './modules/UIManager.js';
 import { StorageManager } from './modules/StorageManager.js';
+import { SUPPORTED_MODELS } from "./modules/llmIntegration.js";
 
 class App {
     constructor() {
@@ -212,6 +213,36 @@ class App {
         }
     }
 }
+
+// Function to render settings menu
+function renderSettingsMenu() {
+    const settingsContainer = document.getElementById("settings-container");
+
+    // Create model selection dropdown
+    const modelSelect = document.createElement("select");
+    modelSelect.id = "model-select";
+
+    Object.keys(SUPPORTED_MODELS).forEach((modelKey) => {
+        const option = document.createElement("option");
+        option.value = modelKey;
+        option.textContent = SUPPORTED_MODELS[modelKey];
+        modelSelect.appendChild(option);
+    });
+
+    settingsContainer.appendChild(modelSelect);
+
+    // Save selected model to localStorage
+    modelSelect.addEventListener("change", (event) => {
+        localStorage.setItem("selected_model", event.target.value);
+    });
+
+    // Set default value
+    const savedModel = localStorage.getItem("selected_model") || "openai";
+    modelSelect.value = savedModel;
+}
+
+// Call renderSettingsMenu on page load
+document.addEventListener("DOMContentLoaded", renderSettingsMenu);
 
 // Initialize the application when the DOM is loaded
 document.addEventListener('DOMContentLoaded', () => {

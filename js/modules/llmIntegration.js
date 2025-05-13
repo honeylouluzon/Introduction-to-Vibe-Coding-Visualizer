@@ -1,13 +1,55 @@
-export async function generateResponse({ prompt, model }) {
-    const apiKey = localStorage.getItem('apiKey');
-    const response = await fetch('https://api.llmprovider.com/v1/generate', {
-        method: 'POST',
+// Supported models
+const SUPPORTED_MODELS = {
+    openai: "OpenAI",
+    llama: "LLaMA",
+    mistral: "Mistral",
+    deepseek: "DeepSeek", // Added DeepSeek
+    // Add more models as needed
+};
+
+// Function to generate response
+async function generateResponse(prompt, model) {
+    if (!SUPPORTED_MODELS[model]) {
+        throw new Error(`Unsupported model: ${model}`);
+    }
+
+    const apiUrl = getApiUrlForModel(model); // Function to get API URL based on model
+    const apiKey = localStorage.getItem(`${model}_api_key`); // Retrieve API key for the selected model
+
+    const response = await fetch(apiUrl, {
+        method: "POST",
         headers: {
-            'Content-Type': 'application/json',
-            'Authorization': `Bearer ${apiKey}`
+            "Content-Type": "application/json",
+            Authorization: `Bearer ${apiKey}`,
         },
-        body: JSON.stringify({ prompt, model })
+        body: JSON.stringify({
+            prompt: prompt,
+            model: model,
+        }),
     });
+
+    if (!response.ok) {
+        throw new Error(`Error from ${SUPPORTED_MODELS[model]}: ${response.statusText}`);
+    }
+
     const data = await response.json();
-    return data.text;
+    return data.generated_text || data.result;
 }
+
+// Helper function to get API URL for a model
+function getApiUrlForModel(model) {
+    switch (model) {
+        case "openai":
+            return "https://api.openai.com/v1/generate";
+        case "llama":
+            return "https://api.llama.ai/v1/generate";
+        case "mistral":
+            return "https://api.mistral.ai/v1/generate";
+        case "deepseek":
+            return "https://api.deepseek.ai/v1/generate"; // Added DeepSeek API URL
+        default:
+            throw new Error(`API URL not defined for model: ${model}`);
+    }
+}
+
+export { generateResponse, SUPPORTED_MODELS };
