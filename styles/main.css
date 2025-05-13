@@ -500,3 +500,18 @@ input[type="range"]:focus {
     font-size: 1rem;
     color: #e0e0e0; /* Light gray text */
 }
+
+#podcast-button {
+    margin-top: 10px;
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+#podcast-button.active {
+    background-color: #28a745;
+}
