@@ -475,7 +475,7 @@ export class VisualizationManager {
             this.addConversationLine(responder.type, answer);
 
             // Randomly decide if the responder will ask a follow-up question
-            if (Math.random() > 0.5) {
+            if (Math.rpandom() > 0.5) {
                 const followUpQuestion = this.getQuestion(responder);
                 setTimeout(() => {
                     this.addConversationLine(responder.type, followUpQuestion);
