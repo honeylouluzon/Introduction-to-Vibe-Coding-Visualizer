@@ -261,8 +261,8 @@ document.getElementById('saveSettings').addEventListener('click', () => {
     const model = document.getElementById('model').value;
     const settingsSection = document.querySelector('.settings'); // Reference to the settings section
 
-    if (apiKey && SUPPORTED_MODELS[selectedModel]) {
-        localStorage.setItem(`${selectedModel}_api_key`, apiKey); // Save API Key for the selected model
+    if (apiKey && SUPPORTED_MODELS[model]) {
+        localStorage.setItem(`${model}_api_key`, apiKey); // Save API Key for the selected model
         localStorage.setItem('selectedModel', model); // Save the selected model
         alert('Settings saved successfully!');
         settingsSection.style.display = 'none'; // Hide the settings section
