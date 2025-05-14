@@ -107,6 +107,14 @@ A client-side web application for comparing different entities (humans, animals,
   - **AI Bot**: "What have you learned recently?"
   - **Human**: "I recently learned about quantum physics. It's fascinating."
 
+### Using LLM for Conversations
+
+To integrate LLM-generated questions and answers into the conversation flow:
+
+1. Import the `generateResponse` function from `llmIntegration.js`.
+2. Use the `getQuestion` and `getAnswer` functions in `VisualizationManager.js` to generate dynamic content.
+3. Ensure the API key and model are set in the settings menu before starting the conversation.
+
 ### Our Story Together
 
 - After dragging at least two entities to the canvas or selecting a preset, the "Our Story Together" section will appear.
