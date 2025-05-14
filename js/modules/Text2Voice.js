@@ -1,3 +1,9 @@
+if (!window.speechSynthesis) {
+    console.error('Speech synthesis is not supported in this browser.');
+    alert('Your browser does not support text-to-speech functionality.');
+    return;
+}
+
 const podcastButton = document.getElementById('podcast-button');
 const conversationBox = document.querySelector('.conversation-box');
 let isSpeaking = false;
@@ -8,19 +14,20 @@ let observer;
 function startSpeaking() {
   if (conversationBox) {
     const text = conversationBox?.textContent.trim();
-    if (text) {
-      speechSynthesisUtterance = new SpeechSynthesisUtterance(text);
-      speechSynthesis.speak(speechSynthesisUtterance);
-
-      // Handle when speech ends
-      speechSynthesisUtterance.onend = () => {
-        if (isSpeaking) {
-          startSpeaking(); // Continue reading if still speaking
-        }
-      };
-    } else {
-      console.warn('No text available to read.');
+    if (!text) {
+        console.warn('No text available to read.');
+        alert('The conversation box is empty.');
+        return;
     }
+    speechSynthesisUtterance = new SpeechSynthesisUtterance(text);
+    speechSynthesis.speak(speechSynthesisUtterance);
+
+    // Handle when speech ends
+    speechSynthesisUtterance.onend = () => {
+      if (isSpeaking) {
+        startSpeaking(); // Continue reading if still speaking
+      }
+    };
   } else {
     console.error('Conversation box not found!');
   }
@@ -71,5 +78,5 @@ podcastButton.addEventListener('click', () => {
   } else {
     // Stop Text-to-Speech
     stopSpeaking();
-  }
-});
+
+  }});

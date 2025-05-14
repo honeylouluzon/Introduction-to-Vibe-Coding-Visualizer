@@ -465,28 +465,16 @@ export class VisualizationManager {
         }, 5000); // New conversation cycle every 5 seconds
     }
 
-    runConversationCycle(entity1, entity2) {
+    async runConversationCycle(entity1, entity2) {
         const asker = this.currentTurn % 2 === 0 ? entity1 : entity2;
         const responder = this.currentTurn % 2 === 0 ? entity2 : entity1;
 
-        const question = getQuestion(asker);
+        const question = await getQuestion(asker); // Await the resolved value
         this.addConversationLine(asker.type, question);
 
-        setTimeout(() => {
-            const answer = getAnswer(responder, question);
+        setTimeout(async () => {
+            const answer = await getAnswer(responder, question); // Await the resolved value
             this.addConversationLine(responder.type, answer);
-
-            // Randomly decide if the responder will ask a follow-up question
-            if (Math.rpandom() > 0.5) {
-                const followUpQuestion = getQuestion(responder);
-                setTimeout(() => {
-                    this.addConversationLine(responder.type, followUpQuestion);
-                    const followUpAnswer = getAnswer(asker, followUpQuestion);
-                    setTimeout(() => {
-                        this.addConversationLine(asker.type, followUpAnswer);
-                    }, 2000); // Delay the follow-up answer by 2 seconds
-                }, 2000); // Delay the follow-up question by 2 seconds
-            }
 
             this.currentTurn++; // Switch turns
         }, 2000); // Delay the response by 2 seconds

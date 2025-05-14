@@ -7,14 +7,27 @@ const SUPPORTED_MODELS = {
     // Add more models as needed
 };
 
+let lastCallTime = 0;
+const RATE_LIMIT = 1000; // 1 second
+
 // Function to generate response
 async function generateResponse(prompt, model) {
+    const now = Date.now();
+    if (now - lastCallTime < RATE_LIMIT) {
+        await new Promise(resolve => setTimeout(resolve, RATE_LIMIT - (now - lastCallTime)));
+    }
+    lastCallTime = now;
+
     if (!SUPPORTED_MODELS[model]) {
         throw new Error(`Unsupported model: ${model}`);
     }
 
     const apiUrl = getApiUrlForModel(model); // Function to get API URL based on model
     const apiKey = localStorage.getItem(`${model}_api_key`); // Retrieve API key for the selected model
+
+    if (!apiKey) {
+        throw new Error(`API key for ${SUPPORTED_MODELS[model]} is missing.`);
+    }
 
     const response = await fetch(apiUrl, {
         method: "POST",
@@ -33,7 +46,7 @@ async function generateResponse(prompt, model) {
     }
 
     const data = await response.json();
-    return data.generated_text || data.result;
+    return data.generated_text || data.result || "No response generated.";
 }
 
 // Helper function to get API URL for a model
