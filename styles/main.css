@@ -520,10 +520,11 @@ input[type="range"]:focus {
 .hamburger-menu {
     position:flex;
     top: 10px;
-    left: 10px;
+    right: 10px;
 }
 
 .menu-toggle {
+    right: 10px;
     background-color: rgba(240, 98, 146, 0.2); /* Semi-transparent light pink background */
     color: #f06292; /* Soft matte pink */
 }
