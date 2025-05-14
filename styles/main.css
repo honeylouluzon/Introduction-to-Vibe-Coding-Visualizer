@@ -518,19 +518,18 @@ input[type="range"]:focus {
 
 /* Hamburger menu styles */
 .hamburger-menu {
-    position: fixed;
+    position:fixed;
     top: 10px;
     right: 10px;
-    background: rgba(240, 98, 146, 0.2); /* Semi-transparent light pink background */
-    color: #f06292; /* Soft matte pink */
-    border: 2px solid #f06292; /* Pink border */
-    border-radius: 50%; /* Circular button */
-    padding: 10px;
-    cursor: pointer;
-    transition: background-color 0.3s ease, transform 0.2s ease;
 }
 
-.hamburger-menu:hover {
+.menu-toggle {
+    right: 10px;
+    background-color: rgba(240, 98, 146, 0.2); /* Semi-transparent light pink background */
+    color: #f06292; /* Soft matte pink */
+}
+
+.menu-toggle:hover {
     background: rgba(240, 98, 146, 0.4); /* Slightly darker semi-transparent pink on hover */
     transform: scale(1.1); /* Slight zoom effect */
 }
