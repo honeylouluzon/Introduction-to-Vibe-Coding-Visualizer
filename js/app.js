@@ -224,7 +224,7 @@ function renderSettingsMenu() {
 
     Object.keys(SUPPORTED_MODELS).forEach((modelKey) => {
         const option = document.createElement("option");
-        poption.value = modelKey;
+        option.value = modelKey; // Fixed typo
         option.textContent = SUPPORTED_MODELS[modelKey];
         modelSelect.appendChild(option);
     });
