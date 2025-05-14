@@ -256,6 +256,21 @@ document.getElementById('save-settings').addEventListener('click', () => {
     alert('Settings saved!');
 });
 
+document.getElementById('saveSettings').addEventListener('click', () => {
+    const apiKey = document.getElementById('apiKey').value;
+    const selectedModel = document.getElementById('model').value;
+    const settingsSection = document.querySelector('.settings'); // Reference to the settings section
+
+    if (apiKey && SUPPORTED_MODELS[selectedModel]) {
+        localStorage.setItem(`${selectedModel}_api_key`, apiKey); // Save API Key for the selected model
+        localStorage.setItem('selectedModel', selectedModel); // Save the selected model
+        alert('Settings saved successfully!');
+        settingsSection.style.display = 'none'; // Hide the settings section
+    } else {
+        alert('Please enter a valid API Key and select a model.');
+    }
+});
+
 // Call renderSettingsMenu on page load
 document.addEventListener("DOMContentLoaded", renderSettingsMenu);
 
