@@ -615,21 +615,51 @@ export class VisualizationManager {
     }
 }
 
-// Import LLM integration (referenced in Third Party.md)
-import { generateResponse } from './llmIntegration.js';
-
-// Modify getQuestion to use LLM
-export function getQuestion(context) {
-    return generateResponse({
-        prompt: `Generate a question based on the following context: ${context}`,
-        model: 'default-model' // Default model, configurable in settings
-    });
+// Example of fixing getQuestion and getAnswer functions
+async function getQuestion() {
+    try {
+        const response = await fetch('/api/getQuestion', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': `Bearer ${apiKey}`, // Ensure API Key is passed
+            },
+            body: JSON.stringify({ model: selectedModel }),
+        });
+        const data = await response.json();
+        return data.question; // Ensure the correct field is returned
+    } catch (error) {
+        console.error('Error fetching question:', error);
+        return 'Error fetching question';
+    }
 }
 
-// Modify getAnswer to use LLM
-export function getAnswer(question) {
-    return generateResponse({
-        prompt: `Provide an answer to the following question: ${question}`,
-        model: 'default-model' // Default model, configurable in settings
-    });
+async function getAnswer(question) {
+    try {
+        const response = await fetch('/api/getAnswer', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': `Bearer ${apiKey}`, // Ensure API Key is passed
+            },
+            body: JSON.stringify({ question, model: selectedModel }),
+        });
+        const data = await response.json();
+        return data.answer; // Ensure the correct field is returned
+    } catch (error) {
+        console.error('Error fetching answer:', error);
+        return 'Error fetching answer';
+    }
+}
+
+// Example usage in the Conversation Section
+async function updateConversation() {
+    const question = await getQuestion();
+    const answer = await getAnswer(question);
+
+    const conversationBox = document.querySelector('.conversation-box');
+    conversationBox.innerHTML = `
+        <div class="question">${question}</div>
+        <div class="answer">${answer}</div>
+    `;
 }
