@@ -7,14 +7,8 @@ const SUPPORTED_MODELS = {
     // Add more models as needed
 };
 
-<<<<<<< HEAD
-// Mock API responses for client-side implementation
-const MOCK_RESPONSES = {
-    openai: "This is a mock response from OpenAI.",
-    llama: "This is a mock response from LLaMA.",
-    mistral: "This is a mock response from Mistral.",
-    deepseek: "This is a mock response from DeepSeek."
-};
+let lastCallTime = 0;
+const RATE_LIMIT = 1000; // 1 second
 
 // Function to get API URL based on model
 function getApiUrlForModel(model) {
@@ -27,10 +21,6 @@ function getApiUrlForModel(model) {
 
     return API_URLS[model] || null;
 }
-=======
-let lastCallTime = 0;
-const RATE_LIMIT = 1000; // 1 second
->>>>>>> 693805eda1828fa455dfddf338d04bd2cf020607
 
 // Function to generate response
 async function generateResponse(prompt, model) {
@@ -51,10 +41,6 @@ async function generateResponse(prompt, model) {
         throw new Error('API key is missing. Please set it in the settings menu.');
     }
 
-    if (!apiKey) {
-        throw new Error(`API key for ${SUPPORTED_MODELS[model]} is missing.`);
-    }
-
     const response = await fetch(apiUrl, {
         method: "POST",
         headers: {
@@ -69,27 +55,7 @@ async function generateResponse(prompt, model) {
     }
 
     const data = await response.json();
-<<<<<<< HEAD
-    return data.response || "No response received from the API.";
-=======
-    return data.generated_text || data.result || "No response generated.";
-}
-
-// Helper function to get API URL for a model
-function getApiUrlForModel(model) {
-    switch (model) {
-        case "openai":
-            return "https://api.openai.com/v1/generate";
-        case "llama":
-            return "https://api.llama.ai/v1/generate";
-        case "mistral":
-            return "https://api.mistral.ai/v1/generate";
-        case "deepseek":
-            return "https://api.deepseek.ai/v1/generate"; // Added DeepSeek API URL
-        default:
-            throw new Error(`API URL not defined for model: ${model}`);
-    }
->>>>>>> 693805eda1828fa455dfddf338d04bd2cf020607
+    return data.response || data.generated_text || data.result || "No response received from the API.";
 }
 
 export { generateResponse, SUPPORTED_MODELS };
