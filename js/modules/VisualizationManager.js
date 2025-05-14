@@ -617,51 +617,71 @@ export class VisualizationManager {
 
 // Example of fixing getQuestion and getAnswer functions
 async function getQuestion() {
+    const apiKey = localStorage.getItem('apiKey');
+    if (!apiKey) {
+        alert('Please set your API Key in the settings.');
+        return 'No API Key provided.';
+    }
+
     try {
-        const response = await fetch('/api/getQuestion', {
+        const response = await fetch('https://api.mistral.ai/v1/completions', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
-                'Authorization': `Bearer ${apiKey}`, // Ensure API Key is passed
+                'Authorization': `Bearer ${apiKey}`,
             },
-            body: JSON.stringify({ model: selectedModel }),
+            body: JSON.stringify({
+                model: selectedModel,
+                prompt: 'Generate a question for a conversation:',
+                max_tokens: 50,
+            }),
         });
+
         const data = await response.json();
         console.log('getQuestion response:', data); // Debugging log
-        return data.question; // Ensure the correct field is returned
+        return data.choices[0].text.trim(); // Adjust based on API response structure
     } catch (error) {
         console.error('Error fetching question:', error);
-        return 'Error fetching question';
+        return 'Error fetching question.';
     }
 }
 
 async function getAnswer(question) {
+    const apiKey = localStorage.getItem('apiKey');
+    if (!apiKey) {
+        alert('Please set your API Key in the settings.');
+        return 'No API Key provided.';
+    }
+
     try {
-        const response = await fetch('/api/getAnswer', {
+        const response = await fetch('https://api.mistral.ai/v1/completions', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
-                'Authorization': `Bearer ${apiKey}`, // Ensure API Key is passed
+                'Authorization': `Bearer ${apiKey}`,
             },
-            body: JSON.stringify({ question, model: selectedModel }),
+            body: JSON.stringify({
+                model: selectedModel,
+                prompt: `Answer the following question: ${question}`,
+                max_tokens: 100,
+            }),
         });
+
         const data = await response.json();
         console.log('getAnswer response:', data); // Debugging log
-        return data.answer; // Ensure the correct field is returned
+        return data.choices[0].text.trim(); // Adjust based on API response structure
     } catch (error) {
         console.error('Error fetching answer:', error);
-        return 'Error fetching answer';
+        return 'Error fetching answer.';
     }
 }
 
 // Example usage in the Conversation Section
 async function updateConversation() {
     try {
-        // Await the resolved values of getQuestion and getAnswer
         const question = await getQuestion();
         const answer = await getAnswer(question);
 
-        // Ensure the conversation box is updated with the resolved values
         const conversationBox = document.querySelector('.conversation-box');
         conversationBox.innerHTML = `
             <div class="question"><strong>Question:</strong> ${question}</div>
