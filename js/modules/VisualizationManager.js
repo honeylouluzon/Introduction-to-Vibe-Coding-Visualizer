@@ -627,6 +627,7 @@ async function getQuestion() {
             body: JSON.stringify({ model: selectedModel }),
         });
         const data = await response.json();
+        console.log('getQuestion response:', data); // Debugging log
         return data.question; // Ensure the correct field is returned
     } catch (error) {
         console.error('Error fetching question:', error);
@@ -645,6 +646,7 @@ async function getAnswer(question) {
             body: JSON.stringify({ question, model: selectedModel }),
         });
         const data = await response.json();
+        console.log('getAnswer response:', data); // Debugging log
         return data.answer; // Ensure the correct field is returned
     } catch (error) {
         console.error('Error fetching answer:', error);
@@ -654,12 +656,20 @@ async function getAnswer(question) {
 
 // Example usage in the Conversation Section
 async function updateConversation() {
-    const question = await getQuestion();
-    const answer = await getAnswer(question);
+    try {
+        // Await the resolved values of getQuestion and getAnswer
+        const question = await getQuestion();
+        const answer = await getAnswer(question);
 
-    const conversationBox = document.querySelector('.conversation-box');
-    conversationBox.innerHTML = `
-        <div class="question">${question}</div>
-        <div class="answer">${answer}</div>
-    `;
+        // Ensure the conversation box is updated with the resolved values
+        const conversationBox = document.querySelector('.conversation-box');
+        conversationBox.innerHTML = `
+            <div class="question"><strong>Question:</strong> ${question}</div>
+            <div class="answer"><strong>Answer:</strong> ${answer}</div>
+        `;
+    } catch (error) {
+        console.error('Error updating conversation:', error);
+        const conversationBox = document.querySelector('.conversation-box');
+        conversationBox.innerHTML = `<div class="error">Failed to load conversation. Please try again.</div>`;
+    }
 }
