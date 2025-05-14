@@ -1,3 +1,5 @@
+import { generateResponse, SUPPORTED_MODELS } from './llmIntegration.js';
+
 export class VisualizationManager {
     constructor() {
         this.chart = null;
@@ -617,70 +619,46 @@ export class VisualizationManager {
 
 // Example of fixing getQuestion and getAnswer functions
 async function getQuestion() {
-    const apiKey = localStorage.getItem('apiKey');
-    if (!apiKey) {
-        alert('Please set your API Key in the settings.');
-        return 'No API Key provided.';
+    const selectedModel = localStorage.getItem('selectedModel'); // Retrieve the selected model
+    if (!SUPPORTED_MODELS[selectedModel]) {
+        alert('Please select a valid model in the settings.');
+        return 'No valid model selected.';
     }
 
+    const prompt = 'Generate a question for a conversation:';
     try {
-        const response = await fetch('https://api.mistral.ai/v1/completions', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-                'Authorization': `Bearer ${apiKey}`,
-            },
-            body: JSON.stringify({
-                model: selectedModel,
-                prompt: 'Generate a question for a conversation:',
-                max_tokens: 50,
-            }),
-        });
-
-        const data = await response.json();
-        console.log('getQuestion response:', data); // Debugging log
-        return data.choices[0].text.trim(); // Adjust based on API response structure
+        const question = await generateResponse(prompt, selectedModel); // Use generateResponse
+        console.log('Generated question:', question); // Debugging log
+        return question;
     } catch (error) {
-        console.error('Error fetching question:', error);
-        return 'Error fetching question.';
+        console.error('Error generating question:', error);
+        return 'Error generating question.';
     }
 }
 
 async function getAnswer(question) {
-    const apiKey = localStorage.getItem('apiKey');
-    if (!apiKey) {
-        alert('Please set your API Key in the settings.');
-        return 'No API Key provided.';
+    const selectedModel = localStorage.getItem('selectedModel'); // Retrieve the selected model
+    if (!SUPPORTED_MODELS[selectedModel]) {
+        alert('Please select a valid model in the settings.');
+        return 'No valid model selected.';
     }
 
+    const prompt = `Answer the following question: ${question}`;
     try {
-        const response = await fetch('https://api.mistral.ai/v1/completions', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-                'Authorization': `Bearer ${apiKey}`,
-            },
-            body: JSON.stringify({
-                model: selectedModel,
-                prompt: `Answer the following question: ${question}`,
-                max_tokens: 100,
-            }),
-        });
-
-        const data = await response.json();
-        console.log('getAnswer response:', data); // Debugging log
-        return data.choices[0].text.trim(); // Adjust based on API response structure
+        const answer = await generateResponse(prompt, selectedModel); // Use generateResponse
+        console.log('Generated answer:', answer); // Debugging log
+        return answer;
     } catch (error) {
-        console.error('Error fetching answer:', error);
-        return 'Error fetching answer.';
+        console.error('Error generating answer:', error);
+        return 'Error generating answer.';
     }
 }
 
 // Example usage in the Conversation Section
 async function updateConversation() {
     try {
-        const question = await getQuestion();
-        const answer = await getAnswer(question);
+        const question = await getQuestion(); // Await the resolved value
+        const answer = await getAnswer(question); // Await the resolved value
 
         const conversationBox = document.querySelector('.conversation-box');
         conversationBox.innerHTML = `
