@@ -224,7 +224,7 @@ function renderSettingsMenu() {
 
     Object.keys(SUPPORTED_MODELS).forEach((modelKey) => {
         const option = document.createElement("option");
-        option.value = modelKey;
+        poption.value = modelKey;
         option.textContent = SUPPORTED_MODELS[modelKey];
         modelSelect.appendChild(option);
     });
