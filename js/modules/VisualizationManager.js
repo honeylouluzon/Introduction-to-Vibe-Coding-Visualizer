@@ -597,19 +597,19 @@ export class VisualizationManager {
     }
 
     generateStory(entities, storyType) {
-        const [entity1, entity2] = entities;
-        const dataset = this.getStoryDataset();
-        const key = `${entity1.type}-${entity2.type}-${storyType}`;
-        const stories = dataset[key] || ["No story available for this combination."];
+        //const [entity1, entity2] = entities;
+        const dataset = this.getStoryDataset(entities, storyType);
+        //const key = `${entity1.type}-${entity2.type}-${storyType}`;
+        const stories = dataset || ["No story available for this combination."]; //dataset[key] || []
 
         // Select a random story from the dataset
-        return stories[Math.floor(Math.random() * stories.length)];
+        return stories; //[Math.floor(Math.random() * stories.length)];
     }
 
     async getStoryDataset(entities, storyType) {
         // Use LLM to generate the story dataset dynamically, considering entity dimension values and story type
         const [entity1, entity2] = entities;
-        const prompt = `Generate a JavaScript object for a story dataset. The object should have keys in the format '<entity1>-<entity2>-<storyType>' (e.g., 'ai-human-love'), and each key should map to an array of at least two unique stories (each at least two paragraphs long). Entity pairs: ai-human, ai-dog, human-dog. Story types: love, horror, comedy, drama, fantasy, adventure. For each story, consider the dimension values of the entities involved (perception, action, memory, learning, goalOrientation) and make the story reflect their strengths and weaknesses. The story should be creative, fit the type, and reference the dimension values in the plot, character actions, or outcomes. Return only the JavaScript object literal. Example: If an entity has high memory, the story should show that character recalling important details; if low action, the character may hesitate to act, etc.`;
+        const prompt = 'Generate a story based on the ' + entity1 + '(Dimension: ' + entity1.dimensions + '), ' + entity2 + '(Dimensions: ' + entity2.dimensions + '), and story type:' + storyType + '. The story should at least two paragraph long. Story types: love, horror, comedy, drama, fantasy, adventure. For each story, consider the dimension values of the entities involved (perception, action, memory, learning, goalOrientation) and make the story reflect their strengths and weaknesses. The story should be creative, fit the type, and reference the dimension values in the plot, character actions, or outcomes. Example: If an entity has high memory, the story should show that character recalling important details; if low action, the character may hesitate to act, etc.'
         try {
             const response = await llmChat(prompt, { model: 'gpt-4o' });
             // Try to parse the response as JS object
