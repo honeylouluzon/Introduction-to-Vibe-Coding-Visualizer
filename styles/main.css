@@ -284,6 +284,24 @@ body {
     transform: translateY(-2px);
 }
 
+/* Listen button styles */
+#listenBtn {
+    margin-top: 0.5rem;
+    width: 100%;
+    background: #4caf50;
+    color: #fff;
+    font-weight: bold;
+    border: none;
+    border-radius: 8px;
+    padding: 0.5rem 0;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+#listenBtn:hover {
+    background: #388e3c;
+}
+
 /* Responsive design */
 @media (max-width: 768px) {
     .app-container {

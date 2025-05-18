@@ -216,4 +216,36 @@ class App {
 // Initialize the application when the DOM is loaded
 document.addEventListener('DOMContentLoaded', () => {
     window.app = new App();
+
+    // Listen button logic for conversation text-to-speech
+    const listenBtn = document.getElementById('listenBtn');
+    const conversationBox = document.querySelector('.conversation-box');
+    let isListening = false;
+    let utterance = null;
+    let synth = window.speechSynthesis;
+
+    if (listenBtn && conversationBox) {
+        listenBtn.addEventListener('click', () => {
+            if (!isListening) {
+                // Gather all conversation text
+                let text = '';
+                conversationBox.querySelectorAll('div').forEach(div => {
+                    text += div.textContent + '\n';
+                });
+                if (text.trim().length === 0) return;
+                utterance = new window.SpeechSynthesisUtterance(text);
+                synth.speak(utterance);
+                listenBtn.textContent = 'Stop';
+                isListening = true;
+                utterance.onend = () => {
+                    listenBtn.textContent = 'Listen';
+                    isListening = false;
+                };
+            } else {
+                synth.cancel();
+                listenBtn.textContent = 'Listen';
+                isListening = false;
+            }
+        });
+    }
 });
