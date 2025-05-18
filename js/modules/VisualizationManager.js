@@ -584,7 +584,7 @@ export class VisualizationManager {
         });
     }
 
-    updateStorySection(entities) {
+    async updateStorySection(entities) {
         if (entities.length < 2) {
             this.storySection.style.display = 'none'; // Hide the story section if less than 2 entities
             return;
@@ -592,18 +592,14 @@ export class VisualizationManager {
 
         this.storySection.style.display = 'block'; // Show the story section
         const storyType = this.storyTypeSelector.querySelector('input[name="story-type"]:checked').value;
-        const story = this.generateStory(entities, storyType);
+        this.storyBox.innerHTML = 'Generating story...';
+        const story = await this.generateStory(entities, storyType);
         this.storyBox.innerHTML = story;
     }
 
-    generateStory(entities, storyType) {
-        //const [entity1, entity2] = entities;
-        const dataset = this.getStoryDataset(entities, storyType);
-        //const key = `${entity1.type}-${entity2.type}-${storyType}`;
-        const stories = dataset || ["No story available for this combination."]; //dataset[key] || []
-
-        // Select a random story from the dataset
-        return stories; //[Math.floor(Math.random() * stories.length)];
+    async generateStory(entities, storyType) {
+        const story = await this.getStoryDataset(entities, storyType);
+        return story || "No story available for this combination.";
     }
 
     async getStoryDataset(entities, storyType) {
