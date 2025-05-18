@@ -9,7 +9,7 @@
  * @returns {Promise<string>} - Resolves to the LLM's response
  */
 export function llmChat(prompt, options = {}) {
-    return puter.ai.chat(prompt, options).then(puter.print);
+    return puter.ai.chat(prompt, options); // Remove .then(puter.print) to return the actual Promise result
 }
 
 /**
