@@ -248,4 +248,31 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
     }
+
+    // Listen button logic for story text-to-speech
+    const listenStoryBtn = document.getElementById('listenStoryBtn');
+    const storyBox = document.querySelector('.story-box');
+    let isStoryListening = false;
+    let storyUtterance = null;
+
+    if (listenStoryBtn && storyBox) {
+        listenStoryBtn.addEventListener('click', () => {
+            if (!isStoryListening) {
+                let text = storyBox.textContent;
+                if (text.trim().length === 0) return;
+                storyUtterance = new window.SpeechSynthesisUtterance(text);
+                synth.speak(storyUtterance);
+                listenStoryBtn.textContent = 'Stop';
+                isStoryListening = true;
+                storyUtterance.onend = () => {
+                    listenStoryBtn.textContent = 'Listen';
+                    isStoryListening = false;
+                };
+            } else {
+                synth.cancel();
+                listenStoryBtn.textContent = 'Listen';
+                isStoryListening = false;
+            }
+        });
+    }
 });
