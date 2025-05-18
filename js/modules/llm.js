@@ -8,8 +8,8 @@
  * @param {Object} [options] - Optional parameters (e.g., { model: "gpt-4o" })
  * @returns {Promise<string>} - Resolves to the LLM's response
  */
-export function llmChat(prompt, options = {}) {
-    return puter.ai.chat(prompt, options); // Remove .then(puter.print) to return the actual Promise result
+export async function llmChat(prompt, options = {}) {
+    return await puter.ai.chat(prompt, options);
 }
 
 /**
