@@ -329,6 +329,14 @@ input[type="range"]:focus {
     outline-offset: 2px;
 }
 
+/* Make an add link */
+.no-style-link{
+    color: inherit;       /* Keeps the current text color */
+    text-decoration: none; /* Removes underline */
+    font: inherit;         /* Inherits font style from parent */
+
+}
+
 /* High contrast mode */
 @media (prefers-contrast: high) {
     body {
