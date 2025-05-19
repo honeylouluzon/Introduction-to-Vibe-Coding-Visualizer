@@ -442,7 +442,7 @@ input[type="range"]:focus {
     text-transform: uppercase;
 }
 
-.control-panel h3 {
+.paytitle h3 {
     margin-bottom: 1rem;
     font-size: 1.4rem;
     color: #f06292;
