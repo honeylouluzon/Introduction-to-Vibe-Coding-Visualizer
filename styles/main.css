@@ -284,6 +284,11 @@ body {
     transform: translateY(-2px);
 }
 
+.btn:disabled {
+    cursor: not-allowed;
+    opacity: 0.5;;
+}
+
 /* Listen button styles */
 #listenBtn {
     margin-top: 0.5rem;
