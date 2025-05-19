@@ -2,12 +2,14 @@ export class UIManager {
     constructor() {
         this.dimensionControls = document.getElementById('dimensionControls');
         this.welcomeMessage = document.querySelector('.welcome-message');
+        this.controlPanel = document.querySelector('.control-panel');
     }
 
     updateDimensionControls(entity) {
         // Hide welcome message when entities are added
         if (this.welcomeMessage) {
             this.welcomeMessage.style.display = 'none';
+            this.controlPanel.style.display = 'block';
         }
 
         // Create dimension controls container for the entity
@@ -79,6 +81,7 @@ export class UIManager {
         // Show welcome message if no entities are present
         if (this.dimensionControls.children.length === 0 && this.welcomeMessage) {
             this.welcomeMessage.style.display = 'block';
+            this.controlPanel.style.displat = 'none';
         }
     }
 
@@ -106,6 +109,7 @@ export class UIManager {
         this.dimensionControls.innerHTML = '';
         if (this.welcomeMessage) {
             this.welcomeMessage.style.display = 'block';
+            this.controlPanel.style.display = 'none';
         }
     }
 }
