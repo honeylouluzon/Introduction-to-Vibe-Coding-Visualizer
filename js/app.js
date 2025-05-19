@@ -44,6 +44,11 @@ class App {
                 this.loadPreset(e.target.dataset.preset);
             });
         });
+        
+        // Make all links open in a new tab
+        document.querySelectorAll('a.no-style-link').forEach(link => {
+        link.setAttribute('target', '_blank');
+});
     }
 
     handleDragStart(e) {
