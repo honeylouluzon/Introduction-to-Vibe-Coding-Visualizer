@@ -275,4 +275,30 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
     }
+
+    // Paypal
+    paypal.Buttons({
+      createOrder: function(data, actions) {
+        return actions.order.create({
+          purchase_units: [{
+            amount: {
+              value: '5.00' // set your price here
+            }
+          }]
+        });
+      },
+      onApprove: function(data, actions) {
+        return actions.order.capture().then(function(details) {
+          alert('Thank you, ' + details.payer.name.given_name + '! Your payment was successful.');
+
+          // Enable the download button
+          const resBtn = document.getElementById('resetBtn');
+          resBtn.disabled = false;
+          const savBtn = document.getElementById('saveBtn');
+          savBtn.disabled = false;
+          const exBtn = document.getElementById('exportBtn');
+          exBtn.disabled = false;
+        });
+      }
+    }).render('#paypal-button-container');
 });

@@ -6,7 +6,10 @@
     <title>Consciousness Continuum Visualizer</title>
     <link rel="stylesheet" href="styles/main.css">
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <!-- PayPal SDK -->
+    <script src="https://www.paypal.com/sdk/js?client-id=AT7WkfV08f3UuwNvWWSTTZh8q0HbONteG-j2jE8Coosb4AEXH8xyHCagR3ngs2BECk4izomsSVX-_B_t&currency=USD"></script>
     <script src="https://js.puter.com/v2/"></script>
+
 </head>
 <body>
     <header class="header">
@@ -114,9 +117,12 @@
                     <!-- Dimension controls will be dynamically added here -->
                 </div>
                 <div class="action-buttons">
-                    <button id="resetBtn" class="btn">Reset</button>
-                    <button id="saveBtn" class="btn">Save</button>
-                    <button id="exportBtn" class="btn">Export</button>
+                    <h2>Purchase to Download</h2>
+                    <!-- PayPal Button Container -->
+                    <div id="paypal-button-container"></div>
+                    <button id="resetBtn" class="btn" disabled>Reset</button>
+                    <button id="saveBtn" class="btn" disabled>Save</button>
+                    <button id="exportBtn" class="btn" disabled>Export</button>
                 </div>
             </div>
         </main>
