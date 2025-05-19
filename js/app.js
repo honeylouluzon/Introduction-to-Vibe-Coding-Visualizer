@@ -292,8 +292,8 @@ document.addEventListener('DOMContentLoaded', () => {
           alert('Thank you, ' + details.payer.name.given_name + '! Your payment was successful.');
 
           // Enable the download button
-          const resBtn = document.getElementById('resetBtn');
-          resBtn.disabled = false;
+          //const resBtn = document.getElementById('resetBtn');
+          //resBtn.disabled = false;
           const savBtn = document.getElementById('saveBtn');
           savBtn.disabled = false;
           const exBtn = document.getElementById('exportBtn');
