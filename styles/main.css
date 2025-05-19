@@ -286,7 +286,7 @@ body {
 
 .btn:disabled {
     cursor: not-allowed;
-    opacity: 0.5;;
+    opacity: 0.3;
 }
 
 /* Listen button styles */
@@ -439,6 +439,14 @@ input[type="range"]:focus {
     font-size: 1.4rem;
     color: #f06292; /* Soft matte pink */
     text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
+    text-transform: uppercase;
+}
+
+.control-panel h3 {
+    margin-bottom: 1rem;
+    font-size: 1.4rem;
+    color: #f06292;
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.4);
     text-transform: uppercase;
 }
 
