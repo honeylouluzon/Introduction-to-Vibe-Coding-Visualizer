@@ -610,13 +610,13 @@ export class VisualizationManager {
             const response = await llmChat(prompt, { model: 'gpt-4o' });
             // Try to parse the response as JS object
             // Remove code block markers if present
-            let code = JSON.stringify(response);
+            let code = response;
             if (code.startsWith('```')) {
                 code = code.replace(/```[a-zA-Z]*\n?/, '').replace(/```$/, '');
             }
             // eslint-disable-next-line no-eval
             const dataset = eval('(' + code + ')');
-            return dataset;
+            return JSON.stringify(dataset);
         } catch (e) {
             console.error('Failed to generate story dataset from LLM:', e);
             return {};
