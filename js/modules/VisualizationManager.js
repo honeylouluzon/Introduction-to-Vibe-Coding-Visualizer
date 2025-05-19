@@ -610,7 +610,7 @@ export class VisualizationManager {
             const response = await llmChat(prompt, { model: 'gpt-4o' });
             // Try to parse the response as JS object
             // Remove code block markers if present
-            let code = response;
+            let code = JSON.stringify(response);
             if (code.startsWith('```')) {
                 code = code.replace(/```[a-zA-Z]*\n?/, '').replace(/```$/, '');
             }
