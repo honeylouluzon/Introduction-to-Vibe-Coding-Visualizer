@@ -307,9 +307,7 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     }).render('#paypal-button-container');
 
-    // Check if redirected back after payment using Stripe
-    const params = new URLSearchParams(window.location.search);
-    const isPaid = params.get("paid");
+    
 
     if (isPaid === "true") {
       const savBtn = document.getElementById("saveBtn");
