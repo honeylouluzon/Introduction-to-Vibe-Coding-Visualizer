@@ -539,3 +539,17 @@ input[type="range"]:focus {
     font-size: 1rem;
     color: #e0e0e0; /* Light gray text */
 }
+
+/* Menu dropdown styles (for header menu) */
+#menuDropdown a:hover {
+    background: #d81b60;
+    color: #fff;
+    text-decoration: none;
+}
+#menuDropdown {
+    animation: fadeInMenu 0.2s;
+}
+@keyframes fadeInMenu {
+    from { opacity: 0; transform: translateY(-10px) translateX(-50%); }
+    to { opacity: 1; transform: translateY(0) translateX(-50%); }
+}
