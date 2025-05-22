@@ -319,16 +319,11 @@ document.addEventListener('DOMContentLoaded', () => {
     // On Page Load: Check for ?paid=true
     const params = new URLSearchParams(window.location.search);
     if (params.get("paid") === "true") {
-      const btn = document.getElementById("download-btn");
-      btn.disabled = false;
-      btn.addEventListener("click", () => {
-        // Trigger file download (adjust the file path)
-        const savBtn = document.getElementById("saveBtn");
-        savBtn.disabled = false;
-        const exBtn = document.getElementById("exportBtn");
-        exBtn.disabled = false;
-      });
-
+      // Trigger file download (adjust the file path)
+      const savBtn = document.getElementById("saveBtn");
+      savBtn.disabled = false;
+      const exBtn = document.getElementById("exportBtn");
+      exBtn.disabled = false;
       // Optional: Clean up the URL
       window.history.replaceState({}, document.title, window.location.pathname);
     }
