@@ -287,7 +287,7 @@ document.addEventListener('DOMContentLoaded', () => {
         return actions.order.create({
           purchase_units: [{
             amount: {
-              value: '5.00' // set your price here
+              value: '3.00' // set your price here
             }
           }]
         });
@@ -306,4 +306,15 @@ document.addEventListener('DOMContentLoaded', () => {
         });
       }
     }).render('#paypal-button-container');
+
+    // Check if redirected back after payment using Stripe
+    const params = new URLSearchParams(window.location.search);
+    const isPaid = params.get("paid");
+
+    if (isPaid === "true") {
+      const savBtn = document.getElementById("saveBtn");
+      savBtn.disabled = false;
+      const exBtn = document.getElementById("exportBtn");
+      exBtn.disabled = false;
+  }
 });
