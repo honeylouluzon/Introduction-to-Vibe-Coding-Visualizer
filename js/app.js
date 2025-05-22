@@ -306,13 +306,30 @@ document.addEventListener('DOMContentLoaded', () => {
         });
       }
     }).render('#paypal-button-container');
-
     
+    const stripeLink = "https://buy.stripe.com/test_4gMcN5bTtf0j833eJk6c000p"; // Your Payment Link here
 
-    if (isPaid === "true") {
-      const savBtn = document.getElementById("saveBtn");
-      savBtn.disabled = false;
-      const exBtn = document.getElementById("exportBtn");
-      exBtn.disabled = false;
-  }
+    // On Pay Button Click
+    document.getElementById("pay-button").addEventListener("click", () => {
+      // Redirect to Stripe Checkout
+      window.location.href = stripeLink;
+    });
+
+    // On Page Load: Check for ?paid=true
+    const params = new URLSearchParams(window.location.search);
+    if (params.get("paid") === "true") {
+      const btn = document.getElementById("download-btn");
+      btn.disabled = false;
+      btn.addEventListener("click", () => {
+        // Trigger file download (adjust the file path)
+        const savBtn = document.getElementById("saveBtn");
+        savBtn.disabled = false;
+        const exBtn = document.getElementById("exportBtn");
+        exBtn.disabled = false;
+      });
+
+      // Optional: Clean up the URL
+      window.history.replaceState({}, document.title, window.location.pathname);
+    }
+  
 });
