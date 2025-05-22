@@ -308,7 +308,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }).render('#paypal-button-container');
     
     // Pay using STRIPE
-    const stripeLink = "https://buy.stripe.com/test_4gMcN5bTtf0j833eJk6c000p"; // Your Payment Link here
+    const stripeLink = "https://buy.stripe.com/test_4gMcN5bTtf0j833eJk6c000"; // Your Payment Link here
 
     // On Pay Button Click
     document.getElementById("pay-stripe").addEventListener("click", () => {
