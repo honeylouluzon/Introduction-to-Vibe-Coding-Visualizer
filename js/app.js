@@ -26,7 +26,55 @@ if (document.getElementById('llmSettingsLink')) {
         e.preventDefault();
         menuDropdown.style.display = 'none';
         menuBtn.style.backgroundColor = '#d81b60';
-        alert('LLM Model & API Key input coming soon!');
+        // Remove any existing modal
+        const oldModal = document.getElementById('llmSettingsModalOverlay');
+        if (oldModal) oldModal.remove();
+        // Modal overlay
+        const overlay = document.createElement('div');
+        overlay.className = 'llm-modal-overlay';
+        overlay.id = 'llmSettingsModalOverlay';
+        // Modal box
+        const modal = document.createElement('div');
+        modal.className = 'llm-modal';
+        // Modal content
+        modal.innerHTML = `
+            <button class="close-btn" title="Close">&times;</button>
+            <h2>LLM Model & API Key</h2>
+            <label for="llm-model-select">Choose LLM Model</label>
+            <select id="llm-model-select">
+                <option value="gpt-4o">GPT-4o</option>
+                <option value="gpt-3.5-turbo">GPT-3.5 Turbo</option>
+                <option value="llama-3">Llama 3</option>
+                <option value="mixtral-8x7b">Mixtral 8x7B</option>
+                <option value="custom">Custom (enter below)</option>
+            </select>
+            <label for="llm-api-key">API Key</label>
+            <input type="text" id="llm-api-key" placeholder="Enter your API key here...">
+            <div class="modal-actions">
+                <button id="llm-save-btn">Save</button>
+                <button id="llm-cancel-btn">Cancel</button>
+            </div>
+        `;
+        overlay.appendChild(modal);
+        document.body.appendChild(overlay);
+        // Close modal logic
+        function closeModal() {
+            overlay.remove();
+        }
+        modal.querySelector('.close-btn').onclick = closeModal;
+        modal.querySelector('#llm-cancel-btn').onclick = closeModal;
+        overlay.onclick = function(e) {
+            if (e.target === overlay) closeModal();
+        };
+        // Save button (placeholder, can be extended to actually store values)
+        modal.querySelector('#llm-save-btn').onclick = function() {
+            // Placeholder: store in localStorage
+            const model = modal.querySelector('#llm-model-select').value;
+            const apiKey = modal.querySelector('#llm-api-key').value;
+            localStorage.setItem('llmModel', model);
+            localStorage.setItem('llmApiKey', apiKey);
+            closeModal();
+        };
     });
 }
 
