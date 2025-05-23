@@ -11,11 +11,10 @@ document.addEventListener('click', function(e) {
         if (menuBtn.contains(e.target)) {
             menuDropdown.style.display = menuDropdown.style.display === 'block' ? 'none' : 'block';
         } else if (!menuDropdown.contains(e.target)) {
-            menuBtn.style.backgroundColor = '#d81b60';
             menuDropdown.style.display = 'none';
         }
         if (menuDropdown.style.display === 'block') {
-            menuBtn.style.backgrounColor = '';
+            menuBtn.style.backgrounColor = '#d81b99';
         }else {
             menuBtn.style.backgroundColor = '#d81b60';
         }
