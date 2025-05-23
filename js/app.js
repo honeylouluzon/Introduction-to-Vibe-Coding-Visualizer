@@ -46,10 +46,12 @@ if (document.getElementById('llmSettingsLink')) {
                 <option value="gpt-3.5-turbo">GPT-3.5 Turbo</option>
                 <option value="llama-3">Llama 3</option>
                 <option value="mixtral-8x7b">Mixtral 8x7B</option>
-                <option value="custom">Custom (enter below)</option>
+                <option value="custom">Custom (No API Needed)</option>
             </select>
-            <label for="llm-api-key">API Key</label>
-            <input type="text" id="llm-api-key" placeholder="Enter your API key here...">
+            <div id="llm-api-key-group">
+                <label for="llm-api-key">API Key</label>
+                <input type="text" id="llm-api-key" placeholder="Enter your API key here...">
+            </div>
             <div class="modal-actions">
                 <button id="llm-save-btn">Save</button>
                 <button id="llm-cancel-btn">Cancel</button>
@@ -57,6 +59,20 @@ if (document.getElementById('llmSettingsLink')) {
         `;
         overlay.appendChild(modal);
         document.body.appendChild(overlay);
+        // Show/hide API Key group based on model selection
+        const modelSelect = modal.querySelector('#llm-model-select');
+        const apiKeyGroup = modal.querySelector('#llm-api-key-group');
+        const apiKeyInput = modal.querySelector('#llm-api-key');
+        function updateApiKeyVisibility() {
+            if (modelSelect.value === 'custom') {
+                apiKeyGroup.style.display = 'none';
+                apiKeyInput.value = '';
+            } else {
+                apiKeyGroup.style.display = '';
+            }
+        }
+        modelSelect.addEventListener('change', updateApiKeyVisibility);
+        updateApiKeyVisibility();
         // Close modal logic
         function closeModal() {
             overlay.remove();
