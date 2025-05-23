@@ -42,10 +42,10 @@ if (document.getElementById('llmSettingsLink')) {
             <h2>LLM Settings</h2>
             <label for="llm-model-select">LLM Model</label>
             <select id="llm-model-select">
-                <option value="gpt-4o">GPT-4o</option>
-                <option value="gpt-3.5-turbo">GPT-3.5 Turbo</option>
-                <option value="llama-3">Llama 3</option>
-                <option value="mixtral-8x7b">Mixtral 8x7B</option>
+                <option value="openai">OpenAI</option>
+                <option value="llama">Llama</option>
+                <option value="deepseek">DeepSeek</option>
+                <option value="mistral">Mistral</option>
                 <option value="custom">Custom (No API Needed)</option>
             </select>
             <div id="llm-api-key-group">
