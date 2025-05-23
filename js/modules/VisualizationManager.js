@@ -603,23 +603,32 @@ export class VisualizationManager {
     }
 
     async getStoryDataset(entities, storyType) {
-        // Use LLM to generate the story dataset dynamically, considering entity dimension values and story type
+        // Compose the prompt as before
         const [entity1, entity2] = entities;
-        const prompt = 'Generate a story based on the ' + entity1 + '(Dimension: ' + entity1.dimensions + '), ' + entity2 + '(Dimensions: ' + entity2.dimensions + '), and story type:' + storyType + '. The story should at least two paragraph long. For each story, consider the dimension values of the entities involved (perception, action, memory, learning, goalOrientation) and make the story reflect their strengths and weaknesses. The story should be creative, fit the type, and reference the dimension values in the plot, character actions, or outcomes. Example: If an entity has high memory, the story should show that character recalling important details; if low action, the character may hesitate to act, etc.'
-        try {
-            const response = await llmChat(prompt, { model: 'gpt-4o' });
-            // Try to parse the response as JS object
-            // Remove code block markers if present
-            let code = response;
-            if (code.startsWith('```')) {
-                code = code.replace(/```[a-zA-Z]*\n?/, '').replace(/```$/, '');
-            }
-            // eslint-disable-next-line no-eval
-            const dataset = eval('(' + code + ')');
-            return JSON.stringify(dataset);
-        } catch (e) {
-            console.error('Failed to generate story dataset from LLM:', e);
-            return {};
-        }
+        const prompt = 'Generate a story based on the ' + entity1 + '(Dimension: ' + entity1.dimensions + '), ' + entity2 + '(Dimensions: ' + entity2.dimensions + '), and story type:' + storyType + '. The story should at least two paragraph long. For each story, consider the dimension values of the entities involved (perception, action, memory, learning, goalOrientation) and make the story reflect their strengths and weaknesses. The story should be creative, fit the type, and reference the dimension values in the plot, character actions, or outcomes. Example: If an entity has high memory, the story should show that character recalling important details; if low action, the character may hesitate to act, etc.';
+
+        // Use the standalone getStoryDataset function for LLM selection logic
+        return await getStoryDataset(prompt);
     }
+}
+
+async function getStoryDataset(input) {
+  const llmSetting = getLLMSettingFromMenu(); // { model: string, apiKey: string }
+  let result;
+
+  if (
+    !llmSetting.model || 
+    llmSetting.model === "Custom" || 
+    !llmSetting.apiKey && llmSetting.model !== "Custom"
+  ) {
+    // Call llm.js for default or Custom model
+    const { generateStory } = await import('./llm.js');
+    result = await generateStory(input);
+  } else {
+    // Call llm-integration.js for other models with API key
+    const { generateStoryWithIntegration } = await import('./llm-integration.js');
+    result = await generateStoryWithIntegration(input, llmSetting.model, llmSetting.apiKey);
+  }
+
+  return result;
 }

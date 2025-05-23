@@ -1,4 +1,4 @@
-# Consciousness Continuum Visualizer
+# Introduction to Vibe Coding Visualizer
 
 A client-side web application for comparing different entities (humans, animals, and artificial intelligences) across five key intelligence dimensions: Perception, Action, Memory, Learning, and Goal Orientation.
 
@@ -183,6 +183,21 @@ A client-side web application for comparing different entities (humans, animals,
     - **0-200**: "A playful creature with a dog's instincts and a human's curiosity."
     - **201-400**: "A half-dog above and a human below, good at logic and reasoning but with limited memory."
     - **401-500**: "A mythical being with the loyalty of a dog and the intellect of a human, capable of extraordinary feats."
+
+## LLM Model Integration for Story Generation
+
+The application supports multiple LLM (Large Language Model) integrations for generating stories:
+
+- **Default/Custom Model:**  
+  If no model is selected, or if "Custom" is chosen in the LLM Setting menu, the app uses the default `llm.js` for story generation. "Custom" does not require an API key.
+
+- **Other Supported Models:**  
+  If a supported model (e.g., OpenAI, Llama, DeepSeek, Mistral, etc.) is selected and a valid API key is provided, the app uses `llm-integration.js` to generate stories via the selected model and key.
+
+- **Automatic Fallback:**  
+  If the model or API key is cleared, the app automatically falls back to the default `llm.js`.
+
+This logic ensures seamless switching between local and API-based LLMs for story generation.
 
 ## Technical Details
 
