@@ -71,3 +71,19 @@ export async function llmChatProvider(provider, prompt, options = {}) {
     const data = await response.json();
     return data.choices?.[0]?.message?.content || "";
 }
+
+/**
+ * Generate a story using the selected LLM model and API key.
+ * @param {string} prompt - The prompt for the story.
+ * @param {string} model - The LLM model name (e.g., 'gpt-4o', 'llama-3', etc.)
+ * @param {string} apiKey - The API key for the selected LLM provider.
+ * @returns {Promise<string>} - The generated story.
+ */
+export async function generateStoryWithIntegration(prompt, model, apiKey) {
+    let provider = 'openai';
+    if (model.startsWith('llama')) provider = 'llama';
+    else if (model.startsWith('deepseek')) provider = 'deepseek';
+    else if (model.startsWith('mixtral') || model.startsWith('mistral')) provider = 'mistral';
+    else if (model.startsWith('gpt')) provider = 'openai';
+    return await llmChatProvider(provider, prompt, { model, apiKey });
+}

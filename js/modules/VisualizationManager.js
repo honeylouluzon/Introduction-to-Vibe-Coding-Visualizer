@@ -625,10 +625,18 @@ export class VisualizationManager {
           result = await generateStory(input);
         } else {
           // Call llm-integration.js for other models with API key
-          const { generateStoryWithIntegration } = await import('./llm-integration.js');
+          const { generateStoryWithIntegration } = await import('./llm-integrations.js');
           result = await generateStoryWithIntegration(input, llmSetting.model, llmSetting.apiKey);
        }
 
         return result;
     }
+}
+
+// Helper to get LLM settings from localStorage
+function getLLMSettingFromMenu() {
+    return {
+        model: localStorage.getItem('llmModel') || '',
+        apiKey: localStorage.getItem('llmApiKey') || ''
+    };
 }
