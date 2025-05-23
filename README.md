@@ -2,6 +2,8 @@
 
 A client-side web application for comparing different entities (humans, animals, and artificial intelligences) across five key intelligence dimensions: Perception, Action, Memory, Learning, and Goal Orientation.
 
+**[-- Click Here to View the Page --](https://honeylouluzon.github.io/Introduction-to-Vibe-Coding-Visualizer/)**
+
 ## Features
 
 - Drag and drop interface for adding entities to the visualization
