@@ -15,6 +15,7 @@ A web application for visualizing and comparing the intelligence dimensions of d
 - **Preset buttons** for quick configuration.
 - **Export** the current chart as a PNG image.
 - **Save/Load** custom configurations using LocalStorage.
+- **Payment Integration**: Pay to unlock Save and Export features using PayPal or Stripe.
 
 ### 2. Menu & Navigation
 - **Hamburger Menu Button** below the main title, styled to match preset buttons.
@@ -92,6 +93,12 @@ A web application for visualizing and comparing the intelligence dimensions of d
 
 ### Exporting
 - Click "Export" to save the current chart as a PNG image.
+
+### Payment Integration
+- To enable the Save and Export buttons, you must complete a payment.
+- **PayPal**: Use the PayPal button in the control panel to pay securely. After payment, Save and Export are unlocked.
+- **Stripe**: Use the Stripe button to pay via Stripe Checkout. After payment, Save and Export are unlocked.
+- Payment status is checked on page load and after successful payment.
 
 ### Action Section
 - Select an entity and click an action button.
