@@ -39,8 +39,8 @@ if (document.getElementById('llmSettingsLink')) {
         // Modal content
         modal.innerHTML = `
             <button class="close-btn" title="Close">&times;</button>
-            <h2>LLM Model & API Key</h2>
-            <label for="llm-model-select">Choose LLM Model</label>
+            <h2>LLM Model Settings</h2>
+            <label for="llm-model-select">LLM Model</label>
             <select id="llm-model-select">
                 <option value="gpt-4o">GPT-4o</option>
                 <option value="gpt-3.5-turbo">GPT-3.5 Turbo</option>
