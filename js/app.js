@@ -39,7 +39,7 @@ if (document.getElementById('llmSettingsLink')) {
         // Modal content
         modal.innerHTML = `
             <button class="close-btn" title="Close">&times;</button>
-            <h2>LLM Model Settings</h2>
+            <h2>LLM Settings</h2>
             <label for="llm-model-select">LLM Model</label>
             <select id="llm-model-select">
                 <option value="gpt-4o">GPT-4o</option>
