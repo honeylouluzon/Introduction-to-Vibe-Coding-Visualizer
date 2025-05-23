@@ -5,3 +5,4 @@
 4. [DONE] Add separate .md file for Privacy Policy and Term Page
 5. [DONE] Create a button below the main title but before the entities section. It format should be the same with the preset button. Its label should be a humburger symbol followed by the word Menu. When it will be click, it contains items that includes: a. item that link to input the llm model to use and its API key, b. Link going to Privacy Policy Page that contains what is inside PrivacyPolicy.md, c. Link going Term of Use Page that contains what is inside Terms.md
 6. [DONE] if the llmSettingsLink in the menu will be click. It will open a box that contain a placeholder to choose all available llm model to use and below is a placeholder that will allow you to input the llm API Key. The theme of the box should be the same with the Page Theme.
+7. [DONE] update the README.md, includes all the changes added to the page. Be sure all of the feature found in the README.md

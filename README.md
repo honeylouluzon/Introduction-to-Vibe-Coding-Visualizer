@@ -13,6 +13,11 @@ A client-side web application for comparing different entities (humans, animals,
 - Fully responsive design
 - Accessibility support
 - **Entity Management**: Add, delete, or update available entities for drag-and-drop comparison
+- **Listen Button**: Listen to the conversation and story text using text-to-speech. Toggle to stop playback.
+- **Menu Button**: Hamburger-style button below the main title, before the entities section, opening a dropdown menu.
+- **Menu Dropdown**: Includes links to LLM Model & API Key settings, Privacy Policy, and Terms of Use pages.
+- **LLM Model & API Key Modal**: Select from available LLM models and input your API key. Modal theme matches the page theme.
+- **Privacy Policy and Terms Pages**: Accessible from the menu, displaying content from PrivacyPolicy.md and Terms.md.
 
 ## Getting Started
 
@@ -48,6 +53,32 @@ A client-side web application for comparing different entities (humans, animals,
 
 - Entities are predefined and available for drag-and-drop comparison.
 - The application no longer supports adding or deleting entities dynamically.
+
+### Listen Button
+
+- A "Listen" button is available below the conversation text box and under the "Our Story Together" text box.
+- Clicking the button will read aloud the text in the respective box using your browser's text-to-speech engine.
+- Clicking again will stop the audio.
+
+### Menu Button and Dropdown
+
+- A hamburger-style "Menu" button is located below the main title and before the entities section.
+- Clicking the button opens a dropdown menu with the following items:
+  - **LLM Model & API Key**: Opens a modal to select the LLM model and input your API key.
+  - **Privacy Policy**: Opens the Privacy Policy page (from PrivacyPolicy.md).
+  - **Terms of Use**: Opens the Terms of Use page (from Terms.md).
+
+### LLM Model & API Key Modal
+
+- Accessible from the menu dropdown.
+- Allows you to select from available LLM models (e.g., GPT-4o, GPT-3.5 Turbo, Llama 3, Mixtral 8x7B, or Custom).
+- Provides a field to input your LLM API key.
+- Modal theme matches the overall page theme.
+
+### Privacy Policy and Terms Pages
+
+- Privacy Policy and Terms of Use are available as separate markdown files and accessible from the menu dropdown.
+- Clicking the links opens the respective documents in a new tab.
 
 ### Consciousness Score and Comparison
 
@@ -174,6 +205,7 @@ The application is structured into several modules:
 - `VisualizationManager`: Manages the chart visualization
 - `UIManager`: Controls UI elements and interactions
 - `StorageManager`: Handles local storage and presets
+- `llm.js`: Handles LLM model selection and API key input, and provides utility functions for LLM and image generation
 
 ## License
 
