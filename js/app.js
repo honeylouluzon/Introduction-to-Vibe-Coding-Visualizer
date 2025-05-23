@@ -3,6 +3,34 @@ import { VisualizationManager } from './modules/VisualizationManager.js';
 import { UIManager } from './modules/UIManager.js';
 import { StorageManager } from './modules/StorageManager.js';
 
+// Menu dropdown logic (moved from index.html)
+const menuBtn = document.getElementById('menuBtn');
+const menuDropdown = document.getElementById('menuDropdown');
+document.addEventListener('click', function(e) {
+    if (menuBtn && menuDropdown) {
+        if (menuBtn.contains(e.target)) {
+            menuDropdown.style.display = menuDropdown.style.display === 'block' ? 'none' : 'block';
+        } else if (!menuDropdown.contains(e.target)) {
+            menuBtn.style.backgroundColor = '#d81b60';
+            menuDropdown.style.display = 'none';
+        }
+        if (menuDropdown.style.display === 'block') {
+            menuBtn.style.backgrounColor = '';
+        }else {
+            menuBtn.style.backgroundColor = '#d81b60';
+        }
+    }
+});
+// Placeholder for LLM settings
+if (document.getElementById('llmSettingsLink')) {
+    document.getElementById('llmSettingsLink').addEventListener('click', function(e) {
+        e.preventDefault();
+        menuDropdown.style.display = 'none';
+        menuBtn.style.backgroundColor = '#d81b60';
+        alert('LLM Model & API Key input coming soon!');
+    });
+}
+
 class App {
     constructor() {
         this.entityManager = new EntityManager();

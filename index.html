@@ -24,28 +24,6 @@
         <a href="PrivacyPolicy.md" target="_blank" class="no-style-link" style="display: block; padding: 0.75em 1.5em; color: #fff;">Privacy Policy</a>
         <a href="Terms.md" target="_blank" class="no-style-link" style="display: block; padding: 0.75em 1.5em; color: #fff;">Terms of Use</a>
     </div>
-    <script>
-    // Menu dropdown logic
-    const menuBtn = document.getElementById('menuBtn');
-    const menuDropdown = document.getElementById('menuDropdown');
-    document.addEventListener('click', function(e) {
-        if (menuBtn && menuDropdown) {
-            if (menuBtn.contains(e.target)) {
-                menuDropdown.style.display = menuDropdown.style.display === 'block' ? 'none' : 'block';
-            } else if (!menuDropdown.contains(e.target)) {
-                menuBtn.style.backgroundColor = '#d81b60';
-                menuDropdown.style.display = 'none';
-            }
-        }
-    });
-    // Placeholder for LLM settings
-    document.getElementById('llmSettingsLink').addEventListener('click', function(e) {
-        e.preventDefault();
-        menuDropdown.style.display = 'none';
-        menuBtn.style.backgroundColor = '#d81b60';
-        alert('LLM Model & API Key input coming soon!');
-    });
-    </script>
 
     <div class="app-container">
         <aside class="sidebar">
