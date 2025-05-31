@@ -4,7 +4,7 @@ A web application for visualizing and comparing the intelligence dimensions of d
 
 [**Live Demo**](https://htmlpreview.github.io/?https://github.com/honeylouluzon/Introduction-to-Vibe-Coding-Visualizer/blob/5eb67d65725cb957b18f2b326d85a2bef25f0db2/index.html)
 
-[**Github Pages**](https://honeylouluzon.github.io/Introduction-to-Vibe-Coding-Visualizer/)
+[**Github Page**](https://honeylouluzon.github.io/Introduction-to-Vibe-Coding-Visualizer/)
 
 ---
 
